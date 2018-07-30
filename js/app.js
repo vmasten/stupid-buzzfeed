@@ -1,10 +1,17 @@
 'use strict'; //always
 
+var quizItems = [];
+
 var Quiz = function(quizItems) {
   this.quizItems = quizItems;
 };
 
-Quiz.prototype.addItem = function(item) {
+
+function QuizItem (questionText, answer, img) {
+  this.questionText = questionText;
+  this.answer = answer;
+  this.img = img;
   
-};
+  quizItems.push(this);
+}
 
