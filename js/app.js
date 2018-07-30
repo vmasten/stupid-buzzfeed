@@ -41,8 +41,11 @@ function correctAnswer(quiz) {
 
 function renderStart() {
   var q1Div = document.createElement('div');
+  q1Div.setAttribute('class', 'quizDiv');
   var q2Div = document.createElement('div');
+  q2Div.setAttribute('class', 'quizDiv');
   var q3Div = document.createElement('div');
+  q3Div.setAttribute('class', 'quizDiv');
   var buttonSection = document.createElement('section');
   var q1Img = document.createElement('img');
   q1Img.src = 'http://via.placeholder.com/350x150';
