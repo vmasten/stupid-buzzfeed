@@ -4,33 +4,33 @@
 var quizItems = [];
 
 var Quiz = function(quizItems) {
+  this.score = 0;
   this.quizItems = quizItems;
 };
 
 
-function QuizItem (questionText, answer, img) {
+function QuizItem (questionText, options, answer, img) {
   this.questionText = questionText;
+  this.options = options;
   this.answer = answer;
   this.img = img;
 
   quizItems.push(this);
 }
 
-var quiz1 = {
-  questions: ['q1', 'q2', 'q3', 'q4', 'q5'],
-  answers: ['a1', 'a2', 'a3', 'a4', 'a5'],
-  imgs: ['img/path1', 'img/path2', 'img/path3', 'img/path4', 'img/path5']
-};
+new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'option2', 'img/path');
+var quiz1 = new Quiz(quizItems);
+quizItems = [];
 
-var quizMaker = function(quiz) {
-  for (var i in quiz.questions) {
-    new QuizItem(quiz.questions[i], quiz.answers[i], quiz.imgs[i]);
+//prototype score tracker
+//should eventually be modified to use an event listener
+function correctAnswer(quiz) {
+  //for loop to iterate through questions goes here
+  if (quiz.quizItems[0].options[1] === quiz.quizItems[0].answer) {
+    quiz.score++;
   }
 
-};
-
-quizMaker(quiz1);
-
+}
 
 // Kris's work below
 
