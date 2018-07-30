@@ -1,0 +1,10 @@
+div {
+  position: relative;
+  display: inline-block;
+  width: 33.33%;
+}
+
+div img{
+  width: 350px;
+  margin: auto;
+}
