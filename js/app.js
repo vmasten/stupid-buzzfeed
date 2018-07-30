@@ -24,7 +24,6 @@ var quiz1 = {
 var quizMaker = function(quiz) {
   for (var i in quiz.questions) {
     new QuizItem(quiz.questions[i], quiz.answers[i], quiz.imgs[i]);
-    console.log(i + "th iteration");
   }
 
 };
