@@ -16,3 +16,14 @@ aside {
   width: 33.33%;
 }
 
+.columnleft {
+  position: relative;
+  width: 620px;
+}
+.columnright {
+  position: relative;
+  width: 300px;
+}
+.gutter {
+  width: 20px;
+}
