@@ -8,7 +8,6 @@ var Quiz = function(quizItems) {
   this.quizItems = quizItems;
 };
 
-
 function QuizItem (questionText, options, answer, img) {
   this.questionText = questionText;
   this.options = options;
@@ -18,6 +17,10 @@ function QuizItem (questionText, options, answer, img) {
   quizItems.push(this);
 }
 
+new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'option2', 'img/path');
+new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'option2', 'img/path');
+new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'option2', 'img/path');
+new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'option2', 'img/path');
 new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'option2', 'img/path');
 var quiz1 = new Quiz(quizItems);
 quizItems = [];
@@ -31,6 +34,8 @@ function correctAnswer(quiz) {
   }
 
 }
+
+
 
 // Kris's work below
 
@@ -52,16 +57,17 @@ function renderStart() {
   q1Div.appendChild(q1Img);
   q2Div.appendChild(q2Img);
   q3Div.appendChild(q3Img);
-  document.getElementById('main').appendChild(q1Div);
-  document.getElementById('main').appendChild(q2Div);
-  document.getElementById('main').appendChild(q3Div);
+  document.getElementById('startDiv').appendChild(q1Div);
+  document.getElementById('startDiv').appendChild(q2Div);
+  document.getElementById('startDiv').appendChild(q3Div);
   buttonSection.appendChild(startButton);
-  document.getElementById('main').appendChild(buttonSection);
+  document.getElementById('startDiv').appendChild(buttonSection);
 }
 
 
+
 function renderQuiz() {
-  //stuff
+  document.getElementById('startDiv').style.display = 'hidden';
 }
 
 
