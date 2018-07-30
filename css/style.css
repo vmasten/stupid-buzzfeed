@@ -19,10 +19,16 @@ aside {
 .columnleft {
   position: relative;
   width: 620px;
+  height: 200px;
+  display: inline-block;
+  margin: 0 10px 0 10px;
 }
 .columnright {
   position: relative;
   width: 300px;
+  height: 100px;
+  display: inline-block;
+  margin: 0 10px 0 10px;
 }
 .gutter {
   width: 20px;
