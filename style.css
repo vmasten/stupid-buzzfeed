@@ -1,7 +1,10 @@
 div {
+  position: relative;
   display: inline-block;
   width: 33.33%;
 }
 
-img {
+div img{
+  width: 350px;
+  margin: auto;
 }

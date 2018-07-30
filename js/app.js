@@ -37,4 +37,10 @@ function renderStart() {
   document.getElementById('main').appendChild(buttonSection);
 }
 
+
+function renderQuiz() {
+  //stuff
+}
+
+
 renderStart();
