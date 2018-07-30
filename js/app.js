@@ -4,7 +4,7 @@ var Quiz = function(quizItems) {
   this.quizItems = quizItems;
 };
 
-Quiz.prototype.addItem(item) {
+Quiz.prototype.addItem = function(item) {
   
-}
+};
 
