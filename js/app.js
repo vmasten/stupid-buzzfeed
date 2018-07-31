@@ -70,7 +70,29 @@ function renderStart() {
 
 
 function renderQuiz() {
-  document.getElementById('startDiv').style.display = 'hidden';
+  document.getElementById('startDiv').style.display = 'none';
+  for (var i in quiz1.quizItems) {
+    var newDiv = document.createElement('div');
+    var createH3 = document.createElement('h3');
+    createH3.textContent = quiz1.quizItems[i].questionText;
+    newDiv.appendChild(createH3);
+    for (var j = 0; j < quiz1.quizItems[i].options.length; j++) {
+      var createOptions = document.createElement('INPUT');
+      createOptions.setAttribute('type', 'radio');
+      createOptions.setAttribute('id', 'button' + j);
+      var createLabel = document.createElement('label');
+      createLabel.setAttribute('for', 'button' + j);
+      createLabel.textContent = quiz1.quizItems[i].options[j];
+      createOptions.appendChild(createLabel);
+      // createOptions.setAttribute('value', quiz1.quizItems[i].options[j]);
+      //createOptions.textContent = quiz1.quizItems[i].options[j];
+      //x.appendChild(createOptions);
+      newDiv.appendChild(createOptions);
+    }
+    document.getElementById('main').appendChild(newDiv);
+
+    // document.getElementById('main').
+  }
 }
 
 
