@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: white;
+}
+
+header * h1 {
+  display: inline;
+}
+
+nav > ul > li {
+  display: inline-block;
+  margin: 5px;
+}
+
+main {
+  margin-top: 100px;
+}
+
+aside {
+  float: right;
+}
+
+.aboutUsSection {
+  background-color: orange;
+  border: solid 2px black;
+  margin-bottom: 2%;
+  width: 80%;
+  padding-left: 2%;
+}
+
+.quizDiv {
+  position: relative;
+  display: inline-block;
+  width: 33.33%;
+}
+
+.content-wrapper {
+  outline: 10px dashed magenta;
+  width: 100%;
+}
+
+.column-wrapper {
+  width: 964px;
+  outline: dashed 5px turquoise;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.columnleft {
+  width: 620px;
+  height: 200px;
+  display: inline-block;
+  margin: 0 10px 0 10px;
+}
+.columnright {
+  width: 300px;
+  height: 100px;
+  display: inline-block;
+  margin: 0 10px 0 10px;
+}
+.gutter {
+  width: 20px;
+}
