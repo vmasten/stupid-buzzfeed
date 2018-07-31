@@ -14,17 +14,34 @@ header * h1 {
   display: inline;
 }
 
+.float-header {
+  position: relative;
+  outline: violet 15px dotted;
+}
+
 nav > ul > li {
   display: inline-block;
   margin: 5px;
 }
 
+header * img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+}
+
 main {
-  margin-top: 100px;
-} */
+  margin-top: 150px;
+}
 
 aside {
   float: right;
+}
+
+/* This class holds the quiz section */
+#startDiv {
+  /* display: none; */
 }
 
 .aboutUsSection {
@@ -44,6 +61,14 @@ aside {
 /* .content-wrapper {
   outline: 10px dashed magenta;
   width: 100%;
+  /* display: none; */
+}
+
+.quiz-card {
+  width: 620px;
+  /* height: 250px; */
+  text-align: center;
+  outline: 10px dashed greenyellow;
 }
 
 .column-wrapper {
@@ -55,13 +80,11 @@ aside {
 
 .columnleft {
   width: 620px;
-  height: 200px;
-  display: inline-block;
   margin: 0 10px 0 10px;
+  float: left;
 }
 .columnright {
   width: 300px;
-  height: 100px;
   display: inline-block;
   margin: 0 10px 0 10px;
 }
