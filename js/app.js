@@ -91,7 +91,6 @@ function chooseQuiz() {
   saveToLocalStorage();
 }
 
- 
 function renderQuiz() {
   chooseQuiz();
   document.getElementById('startDiv').style.display = 'none';
@@ -124,12 +123,11 @@ function renderQuiz() {
   submitEl.setAttribute('type', 'submit');
   submitEl.setAttribute('value', 'Next');
   submitEl.setAttribute('id', 'question' + submitID);
-  
+
   newDiv.appendChild(submitEl);
   submitEl.addEventListener('click', nextQuestion);
 
-  
-  
+
   //working prototype
 
   // for (var i in quiz1.quizItems) {
