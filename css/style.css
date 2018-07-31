@@ -1,4 +1,4 @@
-/* * {
+* {
   box-sizing: border-box;
 }
 
@@ -58,7 +58,7 @@ aside {
   width: 33.33%;
 }
 
-/* .content-wrapper {
+.content-wrapper {
   outline: 10px dashed magenta;
   width: 100%;
   /* display: none; */
@@ -66,9 +66,10 @@ aside {
 
 .quiz-card {
   width: 620px;
-  /* height: 250px; */
+  height: 250px;
   text-align: center;
   outline: 10px dashed greenyellow;
+  padding-top: 20px;
 }
 
 .column-wrapper {
@@ -90,4 +91,4 @@ aside {
 }
 .gutter {
   width: 20px;
-} */
+}
