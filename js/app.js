@@ -5,10 +5,11 @@ var quizItems = [];
 var quizQuestion = 0;
 var submitID = 0;
 
-var Quiz = function(name, quizItems) {
+var Quiz = function(name, quizItems, results) {
   this.name = name;
   this.score = 0;
   this.quizItems = quizItems;
+  this.results = results;
 };
 
 function QuizItem (questionText, options, answerRanking, img) {
@@ -30,7 +31,7 @@ new QuizItem('My dream house...', ['Is gigantic', 'Has a huge yard/is a farm', '
 new QuizItem('Somebody...', ['stop me!', 'once told me the world is gonna roll me', 'told me that you had a boyfriend that looked like a girlfriend that I had in February of last year'], [0, 1, 2], '');
 new QuizItem('What are you doing RIGHT NOW?', ['Taking this stupid quiz', 'Getting annoyed at all these questions', 'Wondering how my life led me to this'], [2, 1, 0], '');
 new QuizItem('Anything else we should know?', ['why are you asking me this', 'What is this, a job interview?', 'No, I think you\'ve pretty much covered it.'], [1, 0, 2], '');
-var quiz1 = new Quiz('vQuiz', quizItems);
+var quiz1 = new Quiz('vQuiz', quizItems, ['oh god how did this get here i\'m bad at computers', 'You\'re the one, Neo', 'You\'re a wizard, Harry']);
 quizItems = [];
 
 function renderStart() {
@@ -66,9 +67,9 @@ function renderStart() {
 function renderQuiz() {
   document.getElementById('startDiv').style.display = 'none';
   var newDiv = document.createElement('div');
-  if (quiz1.quizItems.img !== '') {
+  if (quiz1.quizItems[quizQuestion].img !== '') {
     var img = document.createElement('img');
-    img.src = quiz1.quizItems.img;
+    img.src = quiz1.quizItems[quizQuestion].img;
     newDiv.appendChild(img);
 
   }
@@ -121,10 +122,22 @@ function nextQuestion() {
         quiz1.score += parseInt(scoreAdder[i].value);
     }
   }
-  var stringifiedScore = JSON.stringify(quiz1.score);
-  localStorage.setItem(quiz1.name, stringifiedScore);
-  localStorage.setItem('recentQuiz', stringifiedScore);
+  quizResult();
+}
 
+function quizResult() {
+  if (quiz1.score < 10) {
+    localStorage.setItem(quiz1.name, quiz1.results[0]);
+    localStorage.setItem('recentQuiz', quiz1.results[0]);
+  }
+  else if (quiz1.score < 20) {
+    localStorage.setItem(quiz1.name, quiz1.results[1]);
+    localStorage.setItem('recentQuiz', quiz1.results[1]);
+  }
+  else {
+    localStorage.setItem(quiz1.name, quiz1.results[2]);
+    localStorage.setItem('recentQuiz', quiz1.results[2]);
+  }
 }
 
 renderStart();
