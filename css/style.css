@@ -1,4 +1,4 @@
-* {
+/* * {
   box-sizing: border-box;
 }
 
@@ -21,7 +21,7 @@ nav > ul > li {
 
 main {
   margin-top: 100px;
-}
+} */
 
 aside {
   float: right;
@@ -41,7 +41,7 @@ aside {
   width: 33.33%;
 }
 
-.content-wrapper {
+/* .content-wrapper {
   outline: 10px dashed magenta;
   width: 100%;
 }
@@ -67,4 +67,4 @@ aside {
 }
 .gutter {
   width: 20px;
-}
+} */
