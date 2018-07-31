@@ -14,17 +14,33 @@ header * h1 {
   display: inline;
 }
 
+.float-header {
+  position: relative;
+  outline: violet 15px dotted;
+}
+
+header * img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+}
+
 nav > ul > li {
   display: inline-block;
   margin: 5px;
 }
 
 main {
-  margin-top: 100px;
+  margin-top: 150px;
 }
 
 aside {
   float: right;
+}
+
+#startDiv {
+  display: none;
 }
 
 .aboutUsSection {
