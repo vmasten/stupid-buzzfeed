@@ -91,7 +91,7 @@ function chooseQuiz() {
   saveToLocalStorage();
 }
 
-
+ 
 function renderQuiz() {
   chooseQuiz();
   document.getElementById('startDiv').style.display = 'none';

@@ -31,6 +31,13 @@ header * img {
   display: inline-block;
 }
 
+header:after {
+  content: " ";
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.459);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.13);
+}
+
 main {
   margin-top: 150px;
 }
