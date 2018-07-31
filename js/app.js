@@ -2,6 +2,7 @@
 
 var quizzes = [];
 var quizzesPlayed = [];
+var quizId = [document.getElementById('quiz1'), document.getElementById('quiz2'), document.getElementById('quiz3')];
 
 // Vince's work below
 var quizItems = [];
@@ -19,7 +20,7 @@ var Quiz = function (name, quizItems) {
 function QuizItem(questionText, options, answer, img) {
   this.questionText = questionText;
   this.options = options;
-  this.answerRanking = answerRanking;
+  // this.answerRanking = answerRanking;
   this.img = img;
 
   quizItems.push(this);
@@ -56,33 +57,21 @@ function renderStart() {
     quizzesPlayed = JSON.parse(localStorage.getItem('quizzesPlayedArray'));
   }
 
-  var q1Div = document.createElement('div');
-  q1Div.setAttribute('class', 'quizDiv');
-  var q2Div = document.createElement('div');
-  q2Div.setAttribute('class', 'quizDiv');
-  var q3Div = document.createElement('div');
-  q3Div.setAttribute('class', 'quizDiv');
-  var buttonSection = document.createElement('section');
-  var q1Img = document.createElement('img');
-  q1Img.src = 'http://via.placeholder.com/350x150';
-  var q2Img = document.createElement('img');
-  q2Img.src = 'http://via.placeholder.com/350x150';
-  var q3Img = document.createElement('img');
-  q3Img.src = 'http://via.placeholder.com/350x150';
-  startButton.textContent = 'Take a Quiz!';
-
-  if (quizzesPlayed.length < quizzes.length) {
-    startButton.addEventListener('click', renderQuiz);
+  for (var i = 0; i < quizId.length; i++) {
+    var qh3 = document.createElement('h3');
+    qh3.textContent = quizzes[i].name;
+    quizId[i].appendChild(qh3);
+    var qPic = document.createElement('img');
+    qPic.src = 'http://via.placeholder.com/300x100';
+    quizId[i].appendChild(qPic);
+    var quizText = document.createElement('p');
+    quizText.textContent = 'Click Here!';
+    quizId[i].appendChild(quizText);
   }
 
-  q1Div.appendChild(q1Img);
-  q2Div.appendChild(q2Img);
-  q3Div.appendChild(q3Img);
-  // document.getElementById('startDiv').appendChild(q1Div);
-  // document.getElementById('startDiv').appendChild(q2Div);
-  // document.getElementById('startDiv').appendChild(q3Div);
-  // buttonSection.appendChild(startButton);
-  // document.getElementById('startDiv').appendChild(buttonSection);
+  // if (quizzesPlayed.length < quizzes.length) {
+  //   startButton.addEventListener('click', renderQuiz);
+  // }
 }
 
 
