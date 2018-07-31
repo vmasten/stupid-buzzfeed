@@ -100,30 +100,26 @@ function chooseQuiz() {
 function renderQuiz() {
   chooseQuiz();
   document.getElementById('startDiv').style.display = 'none';
+  var newDiv = document.createElement('div');
+  var createH3 = document.createElement('h3');
+  createH3.textContent = quiz1.quizItems[quizQuestion].questionText;
+  newDiv.appendChild(createH3);
+  for (var j = 0; j < quiz1.quizItems[quizQuestion].options.length; j++) {
+    var divEl = document.createElement('p');
+    var inputEl = document.createElement('INPUT');
+    
+    inputEl.setAttribute('type', 'radio');
+    inputEl.setAttribute('id', 'button' + j);
+    inputEl.setAttribute('value', quiz1.quizItems[quizQuestion].answerRanking[j]);
+    inputEl.setAttribute('name', quiz1.quizItems[quizQuestion].questionText);
+    
+    var createLabel = document.createElement('label');
+    createLabel.setAttribute('for', 'button' + j);
+    createLabel.textContent = quiz1.quizItems[quizQuestion].options[j];
 
-  for (var i in quiz1.quizItems) {
-    var newDiv = document.createElement('div');
-    var createH3 = document.createElement('h3');
-    createH3.textContent = quiz1.quizItems[i].questionText;
-    newDiv.appendChild(createH3);
-
-    for (var j = 0; j < quiz1.quizItems[i].options.length; j++) {
-      var createOptions = document.createElement('INPUT');
-      createOptions.setAttribute('type', 'radio');
-      createOptions.setAttribute('id', 'button' + j);
-      var createLabel = document.createElement('label');
-      createLabel.setAttribute('for', 'button' + j);
-      createLabel.textContent = quiz1.quizItems[i].options[j];
-      createOptions.appendChild(createLabel);
-      // createOptions.setAttribute('value', quiz1.quizItems[i].options[j]);
-      //createOptions.textContent = quiz1.quizItems[i].options[j];
-      //x.appendChild(createOptions);
-      newDiv.appendChild(createOptions);
-    }
-
-    document.getElementById('main').appendChild(newDiv);
-
-    // document.getElementById('main').
+    divEl.appendChild(inputEl);
+    divEl.appendChild(createLabel);
+    newDiv.appendChild(divEl);
   }
 
 
@@ -136,65 +132,45 @@ function renderQuiz() {
   submitEl.addEventListener('click', nextQuestion);
 
 
-  function renderResult() {
-    var greetingH2 = document.createElement('h2');
-    greetingH2.textContent = 'Here are you results ' + localStorage.getItem(username) + '!';
-    document.getElementById('main').appendChild(greetingH2);
-    var thisResult = document.createElement('p');
-    thisResult.textContent = 'Your result from the ' + 'quiz name' + ' quiz was: ' + 'result';
-    document.getElementById('main').appendChild(thisResult);
-    var previousH3 = document.createElement('h3');
-    previousH3.textContent = 'Previous Results:';
-    document.getElementById('main').appendChild(previousH3);
-    // create elements for and append results
-  }
-
-
-  //working prototype
-
-  // for (var i in quiz1.quizItems) {
-  //   var newDiv = document.createElement('div');
-  //   var createH3 = document.createElement('h3');
-  //   createH3.textContent = quiz1.quizItems[i].questionText;
-  //   newDiv.appendChild(createH3);
-  //   var createOptions = document.getElementById('INPUT');
-  //   // for (var j = 0; j < quiz1.quizItems[i].options.length; j++) {
-  //   var createOptions = document.createElement('INPUT');
-  //   createOptions.setAttribute('type', 'radio');
-  //   createOptions.setAttribute('id', 'button' + j);
-  //   createOptions.setAttribute('name', quiz1.quizItems[i].questionText);
-  //   var createLabel = document.createElement('label');
-  //   createLabel.setAttribute('for', 'button' + j);
-  //   createLabel.textContent = quiz1.quizItems[i].options[j];
-  //   newDiv.appendChild(createLabel);
-  //   newDiv.appendChild(createOptions);
+  // function renderResult() {
+  //   var greetingH2 = document.createElement('h2');
+  //   greetingH2.textContent = 'Here are you results ' + localStorage.getItem(username) + '!';
+  //   document.getElementById('main').appendChild(greetingH2);
+  //   var thisResult = document.createElement('p');
+  //   thisResult.textContent = 'Your result from the ' + 'quiz name' + ' quiz was: ' + 'result';
+  //   document.getElementById('main').appendChild(thisResult);
+  //   var previousH3 = document.createElement('h3');
+  //   previousH3.textContent = 'Previous Results:';
+  //   document.getElementById('main').appendChild(previousH3);
+  //   // create elements for and append results
   // }
-  document.getElementById('main').appendChild(newDiv);
 
-  // document.getElementById('main').
+  document.getElementById('main').appendChild(newDiv);
+  submitEl.focus();
+
 }
 
-function nextQuestion(score) {
-  if (document.getElementById('button0').checked) {
-    quiz1.score += parseInt(document.getElementById('button0').value);
-  }
-  else if (document.getElementById('button1').checked) {
-    quiz1.score += parseInt(document.getElementById('button1').value);
-  }
-  else {
-    quiz1.score += parseInt(document.getElementById('button2').value);
-  }
-  console.log(quiz1.score);
+function nextQuestion() {
+
   document.getElementById('question' + submitID).style.display = 'none';
   submitID++;
   quizQuestion++;
-  renderQuiz();
+  if (quizQuestion < quiz1.quizItems.length)
+  {
+    renderQuiz();
+  }
+  else {
+    var scoreAdder = document.getElementsByTagName('input');
+    for (var i in scoreAdder) {
+      if (scoreAdder[i].checked)
+        quiz1.score += parseInt(scoreAdder[i].value);
+    }
+  }
 }
 
 
-
 function saveToLocalStorage() {
-  localStorage.setItem('result')
+  // localStorage.setItem('result')
   // localStorage.setItem('quizzesPlayedArray', JSON.stringify(quizzesPlayed));
 }
 
