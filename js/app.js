@@ -60,11 +60,11 @@ function renderStart() {
   q1Div.appendChild(q1Img);
   q2Div.appendChild(q2Img);
   q3Div.appendChild(q3Img);
-  document.getElementById('startDiv').appendChild(q1Div);
-  document.getElementById('startDiv').appendChild(q2Div);
-  document.getElementById('startDiv').appendChild(q3Div);
-  buttonSection.appendChild(startButton);
-  document.getElementById('startDiv').appendChild(buttonSection);
+  // document.getElementById('startDiv').appendChild(q1Div);
+  // document.getElementById('startDiv').appendChild(q2Div);
+  // document.getElementById('startDiv').appendChild(q3Div);
+  // buttonSection.appendChild(startButton);
+  // document.getElementById('startDiv').appendChild(buttonSection);
 }
 
 
