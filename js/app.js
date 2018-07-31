@@ -1,16 +1,22 @@
 'use strict'; //always
 
+var quizzes = [];
+var quizzesPlayed = [];
+
 // Vince's work below
 var quizItems = [];
 var quizQuestion = 0;
 var submitID = 0;
 
-var Quiz = function(quizItems) {
+var Quiz = function (name, quizItems) {
+  this.name = name;
   this.score = 0;
   this.quizItems = quizItems;
+
+  quizzes.push(this);
 };
 
-function QuizItem (questionText, options, answerRanking, img) {
+function QuizItem(questionText, options, answer, img) {
   this.questionText = questionText;
   this.options = options;
   this.answerRanking = answerRanking;
@@ -24,7 +30,11 @@ new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'o
 new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'option2', 'img/path');
 new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'option2', 'img/path');
 new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'option2', 'img/path');
-var quiz1 = new Quiz(quizItems);
+var quiz1 = new Quiz('quiz1', quizItems);
+var quiz2 = new Quiz('quiz2', quizItems);
+var quiz3 = new Quiz('quiz3', quizItems);
+var quiz4 = new Quiz('quiz4', quizItems);
+var quiz5 = new Quiz('quiz5', quizItems);
 quizItems = [];
 
 //prototype score tracker
@@ -38,10 +48,14 @@ quizItems = [];
 // }
 
 
-
 // Kris's work below
 
+var startButton = document.createElement('button');
 function renderStart() {
+  if (localStorage.quizzesPlayedArray) {
+    quizzesPlayed = JSON.parse(localStorage.getItem('quizzesPlayedArray'));
+  }
+
   var q1Div = document.createElement('div');
   q1Div.setAttribute('class', 'quizDiv');
   var q2Div = document.createElement('div');
@@ -55,9 +69,11 @@ function renderStart() {
   q2Img.src = 'http://via.placeholder.com/350x150';
   var q3Img = document.createElement('img');
   q3Img.src = 'http://via.placeholder.com/350x150';
-  var startButton = document.createElement('button');
   startButton.textContent = 'Take a Quiz!';
-  startButton.addEventListener('click', renderQuiz);
+
+  if (quizzesPlayed.length < quizzes.length) {
+    startButton.addEventListener('click', renderQuiz);
+  }
 
   q1Div.appendChild(q1Img);
   q2Div.appendChild(q2Img);
@@ -70,27 +86,50 @@ function renderStart() {
 }
 
 
+function randomQuiz() {
+  return quizzes[Math.floor(Math.random() * quizzes.length)];
+}
+
+
+function chooseQuiz() {
+  var chosenQuiz = randomQuiz();
+
+  while (quizzesPlayed.includes(chosenQuiz)) {
+    chosenQuiz = randomQuiz();
+  }
+
+  quizzesPlayed.push(chosenQuiz);
+  saveToLocalStorage();
+}
+
 
 function renderQuiz() {
+  chooseQuiz();
   document.getElementById('startDiv').style.display = 'none';
-  var newDiv = document.createElement('div');
-  var createH3 = document.createElement('h3');
-  createH3.textContent = quiz1.quizItems[quizQuestion].questionText;
-  newDiv.appendChild(createH3);
-  for (var j = 0; j < quiz1.quizItems[quizQuestion].options.length; j++) {
-    var divEl = document.createElement('p');
-    var inputEl = document.createElement('INPUT');
-    inputEl.setAttribute('type', 'radio');
-    inputEl.setAttribute('id', 'button' + j);
-    inputEl.setAttribute('value', quiz1.quizItems[quizQuestion].answerRanking[j]);
-    inputEl.setAttribute('name', quiz1.quizItems[quizQuestion].questionText);
-    var createLabel = document.createElement('label');
-    createLabel.setAttribute('for', 'button' + j);
-    createLabel.textContent = quiz1.quizItems[quizQuestion].options[j];
 
-    divEl.appendChild(inputEl);
-    divEl.appendChild(createLabel);
-    newDiv.appendChild(divEl);
+  for (var i in quiz1.quizItems) {
+    var newDiv = document.createElement('div');
+    var createH3 = document.createElement('h3');
+    createH3.textContent = quiz1.quizItems[i].questionText;
+    newDiv.appendChild(createH3);
+
+    for (var j = 0; j < quiz1.quizItems[i].options.length; j++) {
+      var createOptions = document.createElement('INPUT');
+      createOptions.setAttribute('type', 'radio');
+      createOptions.setAttribute('id', 'button' + j);
+      var createLabel = document.createElement('label');
+      createLabel.setAttribute('for', 'button' + j);
+      createLabel.textContent = quiz1.quizItems[i].options[j];
+      createOptions.appendChild(createLabel);
+      // createOptions.setAttribute('value', quiz1.quizItems[i].options[j]);
+      //createOptions.textContent = quiz1.quizItems[i].options[j];
+      //x.appendChild(createOptions);
+      newDiv.appendChild(createOptions);
+    }
+
+    document.getElementById('main').appendChild(newDiv);
+
+    // document.getElementById('main').
   }
   var submitEl = document.createElement('INPUT');
   submitEl.setAttribute('type', 'submit');
@@ -143,6 +182,11 @@ function nextQuestion(score) {
   renderQuiz();
 }
 
+
+
+function saveToLocalStorage() {
+  localStorage.setItem('quizzesPlayedArray', JSON.stringify(quizzesPlayed));
+}
 
 
 renderStart();
