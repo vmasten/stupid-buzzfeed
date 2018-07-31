@@ -40,9 +40,9 @@ aside {
 }
 
 /* This class holds the quiz section */
-#startDiv {
-  /* display: none; */
-}
+/* #startDiv {
+  display: none;
+} */
 
 .aboutUsSection {
   background-color: orange;

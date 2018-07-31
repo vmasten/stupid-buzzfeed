@@ -34,8 +34,8 @@ new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'o
 var quiz1 = new Quiz('quiz1', quizItems);
 var quiz2 = new Quiz('quiz2', quizItems);
 var quiz3 = new Quiz('quiz3', quizItems);
-var quiz4 = new Quiz('quiz4', quizItems);
-var quiz5 = new Quiz('quiz5', quizItems);
+// var quiz4 = new Quiz('quiz4', quizItems);
+// var quiz5 = new Quiz('quiz5', quizItems);
 quizItems = [];
 
 //prototype score tracker
@@ -49,10 +49,15 @@ quizItems = [];
 // }
 
 
-// Kris's work below
-
 var startButton = document.createElement('button');
 function renderStart() {
+  if (localStorage.userName) {
+    // do nothing
+  } else {
+    var userNameInput = prompt('Hi! What is your name?');
+    localStorage.setItem('userName', userNameInput);
+  }
+
   if (localStorage.quizzesPlayedArray) {
     quizzesPlayed = JSON.parse(localStorage.getItem('quizzesPlayedArray'));
   }
@@ -120,16 +125,31 @@ function renderQuiz() {
 
     // document.getElementById('main').
   }
+
+
   var submitEl = document.createElement('INPUT');
   submitEl.setAttribute('type', 'submit');
   submitEl.setAttribute('value', 'Next');
   submitEl.setAttribute('id', 'question' + submitID);
-  
+
   newDiv.appendChild(submitEl);
   submitEl.addEventListener('click', nextQuestion);
 
-  
-  
+
+  function renderResult() {
+    var greetingH2 = document.createElement('h2');
+    greetingH2.textContent = 'Here are you results ' + localStorage.getItem(username) + '!';
+    document.getElementById('main').appendChild(greetingH2);
+    var thisResult = document.createElement('p');
+    thisResult.textContent = 'Your result from the ' + 'quiz name' + ' quiz was: ' + 'result';
+    document.getElementById('main').appendChild(thisResult);
+    var previousH3 = document.createElement('h3');
+    previousH3.textContent = 'Previous Results:';
+    document.getElementById('main').appendChild(previousH3);
+    // create elements for and append results
+  }
+
+
   //working prototype
 
   // for (var i in quiz1.quizItems) {
@@ -174,7 +194,8 @@ function nextQuestion(score) {
 
 
 function saveToLocalStorage() {
-  localStorage.setItem('quizzesPlayedArray', JSON.stringify(quizzesPlayed));
+  localStorage.setItem('result')
+  // localStorage.setItem('quizzesPlayedArray', JSON.stringify(quizzesPlayed));
 }
 
 
