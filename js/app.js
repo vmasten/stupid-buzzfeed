@@ -4,32 +4,37 @@
 var quizItems = [];
 
 var Quiz = function(quizItems) {
+  this.score = 0;
   this.quizItems = quizItems;
 };
 
-
-function QuizItem (questionText, answer, img) {
+function QuizItem (questionText, options, answer, img) {
   this.questionText = questionText;
+  this.options = options;
   this.answer = answer;
   this.img = img;
 
   quizItems.push(this);
 }
 
-var quiz1 = {
-  questions: ['q1', 'q2', 'q3', 'q4', 'q5'],
-  answers: ['a1', 'a2', 'a3', 'a4', 'a5'],
-  imgs: ['img/path1', 'img/path2', 'img/path3', 'img/path4', 'img/path5']
-};
+new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'option2', 'img/path');
+new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'option2', 'img/path');
+new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'option2', 'img/path');
+new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'option2', 'img/path');
+new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'option2', 'img/path');
+var quiz1 = new Quiz(quizItems);
+quizItems = [];
 
-var quizMaker = function(quiz) {
-  for (var i in quiz.questions) {
-    new QuizItem(quiz.questions[i], quiz.answers[i], quiz.imgs[i]);
+//prototype score tracker
+//should eventually be modified to use an event listener
+function correctAnswer(quiz) {
+  //for loop to iterate through questions goes here
+  if (quiz.quizItems[0].options[1] === quiz.quizItems[0].answer) {
+    quiz.score++;
   }
 
-};
+}
 
-quizMaker(quiz1);
 
 
 // Kris's work below
@@ -55,16 +60,39 @@ function renderStart() {
   q1Div.appendChild(q1Img);
   q2Div.appendChild(q2Img);
   q3Div.appendChild(q3Img);
-  document.getElementById('main').appendChild(q1Div);
-  document.getElementById('main').appendChild(q2Div);
-  document.getElementById('main').appendChild(q3Div);
+  document.getElementById('startDiv').appendChild(q1Div);
+  document.getElementById('startDiv').appendChild(q2Div);
+  document.getElementById('startDiv').appendChild(q3Div);
   buttonSection.appendChild(startButton);
-  document.getElementById('main').appendChild(buttonSection);
+  document.getElementById('startDiv').appendChild(buttonSection);
 }
 
 
+
 function renderQuiz() {
-  //stuff
+  document.getElementById('startDiv').style.display = 'none';
+  for (var i in quiz1.quizItems) {
+    var newDiv = document.createElement('div');
+    var createH3 = document.createElement('h3');
+    createH3.textContent = quiz1.quizItems[i].questionText;
+    newDiv.appendChild(createH3);
+    for (var j = 0; j < quiz1.quizItems[i].options.length; j++) {
+      var createOptions = document.createElement('INPUT');
+      createOptions.setAttribute('type', 'radio');
+      createOptions.setAttribute('id', 'button' + j);
+      var createLabel = document.createElement('label');
+      createLabel.setAttribute('for', 'button' + j);
+      createLabel.textContent = quiz1.quizItems[i].options[j];
+      createOptions.appendChild(createLabel);
+      // createOptions.setAttribute('value', quiz1.quizItems[i].options[j]);
+      //createOptions.textContent = quiz1.quizItems[i].options[j];
+      //x.appendChild(createOptions);
+      newDiv.appendChild(createOptions);
+    }
+    document.getElementById('main').appendChild(newDiv);
+
+    // document.getElementById('main').
+  }
 }
 
 
