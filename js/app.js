@@ -3,6 +3,7 @@
 // Vince's work below
 var quizItems = [];
 var quizQuestion = 0;
+var submitID = 0;
 
 var Quiz = function(quizItems) {
   this.score = 0;
@@ -77,20 +78,25 @@ function renderQuiz() {
   createH3.textContent = quiz1.quizItems[quizQuestion].questionText;
   newDiv.appendChild(createH3);
   for (var j = 0; j < quiz1.quizItems[quizQuestion].options.length; j++) {
-      var inputEl = document.createElement('INPUT');
-      inputEl.setAttribute('type', 'radio');
-      inputEl.setAttribute('id', 'button' + j);
-      inputEl.setAttribute('name', quiz1.quizItems[quizQuestion].questionText);
-      var createLabel = document.createElement('label');
-      createLabel.setAttribute('for', 'button' + j);
-      createLabel.textContent = quiz1.quizItems[quizQuestion].options[j];
+    var divEl = document.createElement('p');
+    var inputEl = document.createElement('INPUT');
+    inputEl.setAttribute('type', 'radio');
+    inputEl.setAttribute('id', 'button' + j);
+    inputEl.setAttribute('value', quiz1.quizItems[quizQuestion].answerRanking[j]);
+    inputEl.setAttribute('name', quiz1.quizItems[quizQuestion].questionText);
+    var createLabel = document.createElement('label');
+    createLabel.setAttribute('for', 'button' + j);
+    createLabel.textContent = quiz1.quizItems[quizQuestion].options[j];
 
-      newDiv.appendChild(createLabel);
-      newDiv.appendChild(inputEl);
+    divEl.appendChild(inputEl);
+    divEl.appendChild(createLabel);
+    newDiv.appendChild(divEl);
   }
   var submitEl = document.createElement('INPUT');
   submitEl.setAttribute('type', 'submit');
   submitEl.setAttribute('value', 'Next');
+  submitEl.setAttribute('id', 'question' + submitID);
+  
   newDiv.appendChild(submitEl);
   submitEl.addEventListener('click', nextQuestion);
 
@@ -105,25 +111,38 @@ function renderQuiz() {
   //   newDiv.appendChild(createH3);
   //   var createOptions = document.getElementById('INPUT');
   //   // for (var j = 0; j < quiz1.quizItems[i].options.length; j++) {
-    //   var createOptions = document.createElement('INPUT');
-    //   createOptions.setAttribute('type', 'radio');
-    //   createOptions.setAttribute('id', 'button' + j);
-    //   createOptions.setAttribute('name', quiz1.quizItems[i].questionText);
-    //   var createLabel = document.createElement('label');
-    //   createLabel.setAttribute('for', 'button' + j);
-    //   createLabel.textContent = quiz1.quizItems[i].options[j];
-    //   newDiv.appendChild(createLabel);
-    //   newDiv.appendChild(createOptions);
-    // }
-    document.getElementById('main').appendChild(newDiv);
+  //   var createOptions = document.createElement('INPUT');
+  //   createOptions.setAttribute('type', 'radio');
+  //   createOptions.setAttribute('id', 'button' + j);
+  //   createOptions.setAttribute('name', quiz1.quizItems[i].questionText);
+  //   var createLabel = document.createElement('label');
+  //   createLabel.setAttribute('for', 'button' + j);
+  //   createLabel.textContent = quiz1.quizItems[i].options[j];
+  //   newDiv.appendChild(createLabel);
+  //   newDiv.appendChild(createOptions);
+  // }
+  document.getElementById('main').appendChild(newDiv);
 
-    // document.getElementById('main').
+  // document.getElementById('main').
+}
+
+function nextQuestion(score) {
+  if (document.getElementById('button0').checked) {
+    quiz1.score += parseInt(document.getElementById('button0').value);
   }
+  else if (document.getElementById('button1').checked) {
+    quiz1.score += parseInt(document.getElementById('button1').value);
+  }
+  else {
+    quiz1.score += parseInt(document.getElementById('button2').value);
+  }
+  console.log(quiz1.score);
+  document.getElementById('question' + submitID).style.display = 'none';
+  submitID++;
+  quizQuestion++;
+  renderQuiz();
+}
 
-  function nextQuestion(event) {
-    
-    quiz1.score++;
-  };
 
 
 renderStart();
