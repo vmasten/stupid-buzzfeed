@@ -2,6 +2,27 @@
   box-sizing: border-box;
 }
 
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: white;
+}
+
+header * h1 {
+  display: inline;
+}
+
+nav > ul > li {
+  display: inline-block;
+  margin: 5px;
+}
+
+main {
+  margin-top: 100px;
+}
+
 aside {
   float: right;
 }
@@ -22,6 +43,7 @@ aside {
 
 .content-wrapper {
   outline: 10px dashed magenta;
+  width: 100%;
 }
 
 .column-wrapper {
