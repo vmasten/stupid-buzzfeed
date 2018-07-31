@@ -26,9 +26,9 @@ function QuizItem(questionText, options, answer, img) {
 }
 
 new QuizItem('What is your biggest fear?', ['Spiders', 'Heights', 'Death'], [2, 0, 1], 'img/path');
-new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'option2', 'img/path');
-new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'option2', 'img/path');
-new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'option2', 'img/path');
+new QuizItem('Who is your idol?', ['Barack Obama', 'Dwayne Johnson', 'Taylor Swift'], [1, 2, 0], 'img/path');
+new QuizItem('Where would you go on your dream vacation?', ['Tahiti', 'Paris', 'Tokyo'], [0, 1, 2], 'img/path');
+new QuizItem('What is your favorite genre of video games?', ['Shooter', 'RPG', 'Platformer', 'video games are dumb'], [3, 2, 1, -1], 'img/path');
 new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'option2', 'img/path');
 var quiz1 = new Quiz('quiz1', quizItems);
 var quiz2 = new Quiz('quiz2', quizItems);
