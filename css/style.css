@@ -6,7 +6,9 @@
 }
 
 header {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   position: fixed;
+  padding-top: 32px;
   top: 0;
   right: 0;
   left: 0;
@@ -22,6 +24,7 @@ h1 {
   float: left;
   margin: 0 15px;
   letter-spacing: -1.5pt;
+  font-size: 32px;
 }
 
 h2 {
@@ -149,4 +152,28 @@ aside {
 
 .quiz-card > h3, .quiz-card > p {
   margin-left: 20px;
+}
+
+#quizDiv {
+  background-color: white;
+}
+
+.quizQuestion {
+  display: table;
+  font-size: 20px;
+  background: black;
+  color: white;
+}
+
+.questionOption {
+  line-height: 2em;
+  padding-left: 20px;
+}
+
+.questionOption label {
+  background-color: white;
+}
+
+[id^="question"] {
+  margin-bottom: 40px;
 }
