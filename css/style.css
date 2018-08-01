@@ -27,7 +27,7 @@ h1 {
 }
 
 h2 {
-  outline: dashed 5px magenta;
+  /* outline: dashed 5px magenta; */
   margin: 0 15px;
   font-weight: 900;
   font-size: 24pt;
@@ -109,11 +109,22 @@ aside {
   width: 100%;
 }
 
-.column-wrapper {
+.header-wrapper {
   width: 964px;
   /* outline: dashed 5px turquoise; */
   padding: 16px 0px;
   background-color: white;
+  /* background-color: rgb(244, 244, 244); */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.column-wrapper {
+  width: 964px;
+  /* outline: dashed 5px turquoise; */
+  padding: 16px 0px;
+  /* background-color: white; */
+  background-color: rgb(244, 244, 244);
   margin-left: auto;
   margin-right: auto;
 }
@@ -153,6 +164,17 @@ aside {
 
 .quiz-card > h3, .quiz-card > p {
   margin-left: 20px;
+}
+
+footer {
+  text-align: right;
+  padding-top: 45px;
+  background: rgb(244, 244, 244);
+  margin-right: 25px;
+}
+
+.copyright {
+  background-color: rgb(244, 244, 244);
 }
 
 #quizDiv {
