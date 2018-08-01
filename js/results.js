@@ -1,62 +1,35 @@
 'use strict';
 
-var quizItems = [];
-
-
-var Quiz = function(name, quizItems, results) {
-  this.name = name;
-  this.score = 0;
-  this.quizItems = quizItems;
-  this.results = results;
-
-  // quizzes.push(this);
-};
-
-function QuizItem(questionText, options, answerRanking, img) {
-  this.questionText = questionText;
-  this.options = options;
-  this.answerRanking = answerRanking;
-  this.img = img;
-
-  quizItems.push(this);
-}
-
-var quiz1 = new Quiz('vQuiz', quizItems, ['oh god how did this get here i\'m bad at computers', 'You\'re the one, Neo', 'You\'re a wizard, Harry']);
-var quiz2 = new Quiz('cQuiz', quizItems, ['low result', 'medium result', 'high result']);
-var quiz3 = new Quiz('kQuiz', quizItems, ['Platypus', 'Liger', 'Elephant']);
-
-
+// NOTE: 'quiz name' from localStorage
 function renderResults() {
+  var parsedRecent = JSON.parse(localStorage.recentQuiz);
   document.getElementById('greetingH2').textContent = 'Here are you results ' + localStorage.getItem('userName') + '!';
-  document.getElementById('currentResult').textContent = 'Your result from the ' + 'quiz name' + ' quiz was: ' + 'result';
+  document.getElementById('currentResult').textContent = 'Your result from the ' + parsedRecent[1] + ' quiz was: ' + parsedRecent[0];
 
   if (localStorage.vQuiz) {
-    document.getElementById('q1Result').textContent = quiz1.name + ' results: ' + localStorage.getItem(quiz1.name);
+    document.getElementById('q1Result').textContent = quiz1.name + ' results: ' + localStorage.vQuiz;
   }
 
   if (localStorage.cQuiz) {
-    document.getElementById('q2Result').textContent = quiz2.name + ' results: ' + localStorage.getItem(quiz2.name);
+    document.getElementById('q2Result').textContent = quiz2.name + ' results: ' + localStorage.cQuiz;
   }
 
   if (localStorage.kQuiz) {
-    document.getElementById('q3Result').textContent = quiz3.name + ' results: ' + localStorage.getItem(quiz3.name);
+    document.getElementById('q3Result').textContent = quiz3.name + ' results: ' + localStorage.kQuiz;
+  }
+// NOTE: recentQuiz check needs to be refactored
+  if (quiz1.name === parsedRecent[1]) {
+    document.getElementById('q1Result').textContent = '';
   }
 
-  if (quiz1.name === localStorage.recentQuiz[1]) {
-    document.getElementById('q1Results').textContent = '';
+  if (quiz2.name === parsedRecent[1]) {
+    document.getElementById('q2Result').textContent = '';
   }
 
-  if (quiz2.name === localStorage.recentQuiz[1]) {
-    document.getElementById('q2Results').textContent = '';
-  }
-
-  if (quiz3.name === localStorage.recentQuiz[1]) {
-    document.getElementById('q3Results').textContent = '';
+  if (quiz3.name === parsedRecent[1]) {
+    document.getElementById('q3Result').textContent = '';
   }
 }
-
-
-
 
 
 renderResults();
