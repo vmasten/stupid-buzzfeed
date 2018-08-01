@@ -41,17 +41,6 @@ var quiz1 = new Quiz('vQuiz', quizItems, ['oh god how did this get here i\'m bad
 // var quiz2 = new Quiz('quiz2', quizItems)
 quizItems = [];
 
-//prototype score tracker
-//should eventually be modified to use an event listener
-// function correctAnswer(quiz) {
-//   //for loop to iterate through questions goes here
-//   if (quiz.quizItems[0].options[1] === quiz.quizItems[0].answer) {
-//     quiz.score++;
-//   }
-
-// }
-
-
 var startButton = document.createElement('button');
 function renderStart() {
   if (localStorage.userName) {
@@ -78,23 +67,6 @@ function renderStart() {
     quizId[i].addEventListener('click', renderQuiz);
   }
 
-  // if (quizzesPlayed.length < quizzes.length) {
-  //   startButton.addEventListener('click', renderQuiz);
-  // }
-}
-
-
-function randomQuiz() {
-  return quizzes[Math.floor(Math.random() * quizzes.length)];
-}
-
-
-function chooseQuiz() {
-  var chosenQuiz = randomQuiz();
-
-  while (quizzesPlayed.includes(chosenQuiz)) {
-    chosenQuiz = randomQuiz();
-  }
 
 function renderStart() {
   var q1Div = document.createElement('div');
@@ -124,16 +96,18 @@ function renderStart() {
   document.getElementById('startDiv').appendChild(buttonSection);
 }
 
+
 function renderQuiz() {
   chooseQuiz();
   document.getElementById('startDiv').style.display = 'none';
   var newDiv = document.createElement('div');
+
   if (quiz1.quizItems[quizQuestion].img !== '') {
     var img = document.createElement('img');
     img.src = quiz1.quizItems[quizQuestion].img;
     newDiv.appendChild(img);
-
   }
+
   var createH3 = document.createElement('h3');
   createH3.textContent = quiz1.quizItems[quizQuestion].questionText;
   newDiv.appendChild(createH3);
@@ -166,6 +140,7 @@ function renderQuiz() {
 
 }
 
+
 function nextQuestion() {
 
   document.getElementById('question' + submitID).style.display = 'none';
@@ -184,6 +159,7 @@ function nextQuestion() {
   }
   quizResult();
 }
+
 
 function quizResult() {
   if (quiz1.score < 10) {
