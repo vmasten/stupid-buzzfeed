@@ -96,10 +96,33 @@ function chooseQuiz() {
     chosenQuiz = randomQuiz();
   }
 
-  quizzesPlayed.push(chosenQuiz);
-  saveToLocalStorage();
-}
+function renderStart() {
+  var q1Div = document.createElement('div');
+  q1Div.setAttribute('class', 'quizDiv');
+  var q2Div = document.createElement('div');
+  q2Div.setAttribute('class', 'quizDiv');
+  var q3Div = document.createElement('div');
+  q3Div.setAttribute('class', 'quizDiv');
+  var buttonSection = document.createElement('section');
+  var q1Img = document.createElement('img');
+  q1Img.src = 'http://via.placeholder.com/350x150';
+  var q2Img = document.createElement('img');
+  q2Img.src = 'http://via.placeholder.com/350x150';
+  var q3Img = document.createElement('img');
+  q3Img.src = 'http://via.placeholder.com/350x150';
+  var startButton = document.createElement('button');
+  startButton.textContent = 'Take a Quiz!';
+  startButton.addEventListener('click', renderQuiz);
 
+  q1Div.appendChild(q1Img);
+  q2Div.appendChild(q2Img);
+  q3Div.appendChild(q3Img);
+  document.getElementById('startDiv').appendChild(q1Div);
+  document.getElementById('startDiv').appendChild(q2Div);
+  document.getElementById('startDiv').appendChild(q3Div);
+  buttonSection.appendChild(startButton);
+  document.getElementById('startDiv').appendChild(buttonSection);
+}
 
 function renderQuiz() {
   chooseQuiz();
@@ -141,23 +164,6 @@ function renderQuiz() {
   newDiv.appendChild(submitEl);
   submitEl.addEventListener('click', nextQuestion);
 
-
-  // function renderResult() {
-  //   var greetingH2 = document.createElement('h2');
-  //   greetingH2.textContent = 'Here are you results ' + localStorage.getItem(username) + '!';
-  //   document.getElementById('main').appendChild(greetingH2);
-  //   var thisResult = document.createElement('p');
-  //   thisResult.textContent = 'Your result from the ' + 'quiz name' + ' quiz was: ' + 'result';
-  //   document.getElementById('main').appendChild(thisResult);
-  //   var previousH3 = document.createElement('h3');
-  //   previousH3.textContent = 'Previous Results:';
-  //   document.getElementById('main').appendChild(previousH3);
-  //   // create elements for and append results
-  // }
-
-  document.getElementById('main').appendChild(newDiv);
-  submitEl.focus();
-
 }
 
 function nextQuestion() {
@@ -193,12 +199,5 @@ function quizResult() {
     localStorage.setItem('recentQuiz', JSON.stringify([quiz1.results[2], quiz1.name]));
   }
 }
-
-
-function saveToLocalStorage() {
-  // localStorage.setItem('result')
-  // localStorage.setItem('quizzesPlayedArray', JSON.stringify(quizzesPlayed));
-}
-
 
 renderStart();
