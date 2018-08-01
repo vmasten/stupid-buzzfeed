@@ -178,7 +178,7 @@ footer {
 }
 
 #quizDiv {
-  background-color: white;
+  background-color: rgb(244, 244, 244);
 }
 
 .quizQuestion {
@@ -191,10 +191,11 @@ footer {
 .questionOption {
   line-height: 2em;
   padding-left: 20px;
+  background-color: rgb(244, 244, 244);
 }
 
-.questionOption label {
-  background-color: white;
+.input {
+  background-color: rgb(244, 244, 244);
 }
 
 [id^="question"] {
