@@ -14,9 +14,11 @@ var Quiz = function(name, quizItems, results) {
   this.score = 0;
   this.quizItems = quizItems;
   this.results = results;
+
+  quizzes.push(this);
 };
 
-function QuizItem(questionText, options, answer, img) {
+function QuizItem(questionText, options, answerRanking, img) {
   this.questionText = questionText;
   this.options = options;
   this.answerRanking = answerRanking;
@@ -36,20 +38,63 @@ new QuizItem('Somebody...', ['stop me!', 'once told me the world is gonna roll m
 new QuizItem('What are you doing RIGHT NOW?', ['Taking this stupid quiz', 'Getting annoyed at all these questions', 'Wondering how my life led me to this'], [2, 1, 0], 'imgs/curious.jpg');
 new QuizItem('Anything else we should know?', ['why are you asking me this', 'What is this, a job interview?', 'No, I think you\'ve pretty much covered it.'], [1, 0, 2], '');
 var quiz1 = new Quiz('vQuiz', quizItems, ['oh god how did this get here i\'m bad at computers', 'You\'re the one, Neo', 'You\'re a wizard, Harry']);
+// var quiz2 = new Quiz('quiz2', quizItems)
 quizItems = [];
 
-new QuizItem('What dish sounds most appealing to you on a cold winter evening?', ['Stew', 'Raw onions', 'Ice Cream'], [3, 1, 2], '');
-new QuizItem('When ordering food, what\'s your response to \"how spicy?\"', ['No spice, please', '2 chilis', 'Bring on the ghost peppers!'], [1, 2, 3], '');
-new QuizItem('Fruits, vegetables, or meat?', ['Veggies', 'Fruits', 'I am a true carnivore, so pass the meat!'], [2, 1, 3], '');
-new QuizItem('What condiment is best; ranch dressing or ketchup?', ['Ranch Dressing', 'Ketchup/Catsup', 'neither, those are disgusting'], [1, 2, 3], '');
-new QuizItem('What tops your ice cream sundae?', ['Whipped cream', 'Chocolate syrup', 'Just one cherry'], [3, 2, 1], '');
-new QuizItem('Tacos, burgers, or pizza?', ['Tacos', 'Burgers', 'Pizza'], [3, 1, 2], )
-new QuizItem('Which is your favorite utensil?', ['Fork', 'Knife', 'Spoon'], [1, 2, 3], '');
-new QuizItem('Would you rather cook dinner, order delivery, or eat out?', ['Cook at home', 'Order Delivery', 'Dining out'], [3, 1, 2], '');
-new QuizItem('Do you prefer sweet, salty, or spicy?', ['spicy', 'salty', 'sweet'], [3, 2, 1], '');
-new QuizItem('Choose the delicacy you are forced to eat:', ['Surströmming (fermented herring)', 'Balut (boiled developed bird egg)', 'Kiviak (Auk bird stuffed and fermented in seal carcass)'], [2, 1, 3], '');
-var quiz2 = new Quiz('cQuiz', quizItems, ['low result', 'medium result', 'high result']);
-quizItems = [];
+//prototype score tracker
+//should eventually be modified to use an event listener
+// function correctAnswer(quiz) {
+//   //for loop to iterate through questions goes here
+//   if (quiz.quizItems[0].options[1] === quiz.quizItems[0].answer) {
+//     quiz.score++;
+//   }
+
+// }
+
+
+var startButton = document.createElement('button');
+function renderStart() {
+  if (localStorage.userName) {
+    // do nothing
+  } else {
+    var userNameInput = prompt('Hi! What is your name?');
+    localStorage.setItem('userName', userNameInput);
+  }
+
+  if (localStorage.quizzesPlayedArray) {
+    quizzesPlayed = JSON.parse(localStorage.getItem('quizzesPlayedArray'));
+  }
+
+  for (var i = 0; i < quizzes.length; i++) {
+    var qh3 = document.createElement('h3');
+    qh3.textContent = quizzes[i].name;
+    quizId[i].appendChild(qh3);
+    var qPic = document.createElement('img');
+    qPic.src = 'http://via.placeholder.com/300x100';
+    quizId[i].appendChild(qPic);
+    var quizText = document.createElement('p');
+    quizText.textContent = 'Click Here!';
+    quizId[i].appendChild(quizText);
+    quizId[i].addEventListener('click', renderQuiz);
+  }
+
+  // if (quizzesPlayed.length < quizzes.length) {
+  //   startButton.addEventListener('click', renderQuiz);
+  // }
+}
+
+
+function randomQuiz() {
+  return quizzes[Math.floor(Math.random() * quizzes.length)];
+}
+
+
+function chooseQuiz() {
+  var chosenQuiz = randomQuiz();
+
+  while (quizzesPlayed.includes(chosenQuiz)) {
+    chosenQuiz = randomQuiz();
+  }
 
 function renderStart() {
   var q1Div = document.createElement('div');
@@ -109,6 +154,8 @@ function renderQuiz() {
     divEl.appendChild(createLabel);
     newDiv.appendChild(divEl);
   }
+
+
   var submitEl = document.createElement('INPUT');
   submitEl.setAttribute('type', 'submit');
   submitEl.setAttribute('value', 'Next');
