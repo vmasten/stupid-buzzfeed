@@ -54,6 +54,19 @@ new QuizItem('Choose the delicacy you are forced to eat:', ['Surströmming (ferm
 var quiz2 = new Quiz('cQuiz', quizItems, ['low result', 'medium result', 'high result']);
 quizItems = []; // resets quizItems for next quiz
 
+new QuizItem('How much outside space do you have?', ['A little', 'A lot', 'Way to much'], [1, 2, 3], '');
+new QuizItem('What is your Ideal enviroment?', ['PNW', 'An Island', 'The Desert'], [0, 1, 3], '');
+new QuizItem('What would you prefer to eat?', ['Shrimp', 'Steak', 'Salad'], [0, 2, 3], '');
+new QuizItem('What kind of move would you watch?', ['Romance', 'Action', 'Documentary'], [1, 2, 3], '')
+new QuizItem('What is your form of transportation?', ['Public Transportation', 'Car/Truck', 'Walk/Bike'], [0, 1, 3], '');
+new QuizItem('What is your choice of spirits?', ['Whiskey', 'Tequila', 'Gin'], [0, 2, 3], '');
+new QuizItem('Train a whole party of Pokemon, or train one overpowered Pokemon?', ['What?', 'A Whole Party', 'One Pokemon'], [0, 1, 3], '');
+new QuizItem('What skill would you want to learn?', ['Fishing', 'Hunting', 'Foraging'], [0, 2, 3], '');
+new QuizItem('Which artis do you appreciate most?', ['Salvador Dali', 'Vincent van Gogh', 'Bob Ross'], [1, 2, 3], '');
+new QuizItem('Are you a morning person?', ['Only because I never went to sleep last night', 'Yes', 'No'], [0, 1, 3], '');
+var quiz3 = new Quiz('kQuiz', quizItems, ['Platypus', 'Liger', 'Elephant']);
+quizItems = [];
+
 var startButton = document.createElement('button'); // button that starts the quiz when clicked
 function renderStart() { // function that starts the quiz flow
   if (localStorage.userName) { // if user has already been to site, skip asking their name
@@ -77,7 +90,7 @@ function renderStart() { // function that starts the quiz flow
     var quizText = document.createElement('p'); // create a p element for text under picture in quiz card
     quizText.textContent = 'Click Here!'; // text content for p
     quizId[i].appendChild(quizText); // appending p element to identified div for quiz
-    quizId[i].addEventListener('click', renderQuiz); // adds an eventListener to watch for a click on quiz
+    quizText.addEventListener('click', renderQuiz); // adds an eventListener to watch for a click on quiz
   }
 }
 
@@ -120,8 +133,7 @@ function renderQuiz() { // function to render the quiz questions after selection
   newDiv.appendChild(submitEl); // append input to quiz div
   submitEl.addEventListener('click', nextQuestion); // add an eventListener for a click on the submit, runs nextQuestion() function
 
-  var main = document.getElementById('main'); // get the main element via id from document
-  main.appendChild(newDiv); // append the quiz div to the main
+  document.getElementById('main').appendChild(newDiv); // append the quiz div to the main
 }
 
 
@@ -140,8 +152,8 @@ function nextQuestion() { // function to display next question when submit butto
       if (scoreAdder[i].checked) // if scoreAdder has been checked/selected
         quiz1.score += parseInt(scoreAdder[i].value); // add to quiz score value of scoreAdder (option selected)
     }
+    quizResult();
   }
-  quizResult(); // post the quiz results based on score
 }
 
 
@@ -158,6 +170,7 @@ function quizResult() { // function to display the quiz results
     localStorage.setItem(quiz1.name, quiz1.results[2]); // add to localStorage the result from the quiz object's results
     localStorage.setItem('recentQuiz', JSON.stringify([quiz1.results[2], quiz1.name])); // add to local storage that this result is for recent quiz
   }
+  location.href = 'results.html';
 }
 
 renderStart(); // run the renderStart() function
