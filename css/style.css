@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+  background-color: rgb(244, 244, 244);
+  color: #222222;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: white;
+  height: 72px;
+}
+
+h1 {
+  background-color: white;
+  margin-left: 19px;
+  font-weight: bolder;
+  color: #EE3322;
+  float: left;
+  margin: 0 15px;
+  letter-spacing: -1.5pt;
+}
+
+h2 {
+  outline: dashed 5px magenta;
+  margin: 0 15px;
+  font-weight: 900;
+  font-size: 24pt;
+}
+
+h3, p {
+  background-color: white;
+}
+
+.float-header {
+  position: relative;
+  background-color: white;
+}
+
+nav * {
+  background-color: white;
+}
+
+nav > ul > li, nav > ul > li > a {
+  display: inline-block;
+  margin: 5px;
+  color: #0f65ef !important;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 11pt;
+}
+
+nav * input {
+  border: 1px solid #aaaaaa6e;
+  height: 30px;
+  color: #999898;
+  padding-left: 10px;
+  margin-left: 20px;
+}
+
+header * img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+}
+
+header:after {
+  content: " ";
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.219);
+  box-shadow:  0 1px 0 hsla(0,3%,67%,.1), 0 2px 1px hsla(0,1%,71%,.1);
+}
+
+main {
+  margin-top: 110px;
+}
+
+aside {
+  float: right;
+}
+
+/* This class holds the quiz section */
+/* #startDiv {
+  display: none;
+} */
+
+.aboutUsSection {
+  background-color: orange;
+  border: solid 2px black;
+  margin-bottom: 2%;
+  width: 80%;
+  padding-left: 2%;
+}
+
+.quizDiv {
+  position: relative;
+  display: inline-block;
+  width: 33.33%;
+}
+
+.content-wrapper {
+  /* outline: 10px dashed magenta; */
+  width: 100%;
+}
+
+.column-wrapper {
+  width: 964px;
+  /* outline: dashed 5px turquoise; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.columnleft {
+  width: 620px;
+  margin: 0 10px 0 10px;
+  float: left;
+}
+
+.columnright {
+  width: 300px;
+  display: inline-block;
+  margin: 0 10px 0 10px;
+}
+
+.gutter {
+  width: 20px;
+}
+
+.quiz-card {
+  width: 620px;
+  height: 300px;
+  /* outline: 5px dashed greenyellow; */
+  padding-top: 20px;
+  background-color: rgb(255, 255, 255);
+  border: solid 1px rgb(244, 244, 244);
+  box-shadow:  0 1px 0 hsla(0,3%,67%,.1), 0 2px 1px hsla(0,1%,71%,.1);
+  margin: 7px 0 15px 0;
+  box-sizing: border-box;
+}
+
+.quiz-card > img {
+  width: 100%;
+  margin-top: -20px;
+}
+
+.quiz-card > h3, .quiz-card > p {
+  margin-left: 20px;
+}

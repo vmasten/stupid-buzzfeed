@@ -1,5 +1,9 @@
 'use strict'; //always
 
+var quizzes = [];
+var quizzesPlayed = [];
+var quizId = [document.getElementById('quiz1'), document.getElementById('quiz2'), document.getElementById('quiz3')];
+
 // Vince's work below
 var quizItems = [];
 var quizQuestion = 0;
@@ -12,7 +16,7 @@ var Quiz = function(name, quizItems, results) {
   this.results = results;
 };
 
-function QuizItem (questionText, options, answerRanking, img) {
+function QuizItem(questionText, options, answer, img) {
   this.questionText = questionText;
   this.options = options;
   this.answerRanking = answerRanking;
@@ -75,9 +79,8 @@ function renderStart() {
   document.getElementById('startDiv').appendChild(buttonSection);
 }
 
-
-
 function renderQuiz() {
+  chooseQuiz();
   document.getElementById('startDiv').style.display = 'none';
   var newDiv = document.createElement('div');
   if (quiz1.quizItems[quizQuestion].img !== '') {
@@ -113,9 +116,6 @@ function renderQuiz() {
 
   newDiv.appendChild(submitEl);
   submitEl.addEventListener('click', nextQuestion);
-
-  document.getElementById('main').appendChild(newDiv);
-  submitEl.focus();
 
 }
 
