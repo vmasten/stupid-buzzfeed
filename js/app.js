@@ -89,7 +89,7 @@ function renderStart() {
     var quizText = document.createElement('p');
     quizText.textContent = 'Click Here!';
     quizId[i].appendChild(quizText);
-    quizId[i].addEventListener('click', renderQuiz);
+    quizText.addEventListener('click', renderQuiz);
   }
 }
 
