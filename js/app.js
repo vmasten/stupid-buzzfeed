@@ -27,15 +27,15 @@ function QuizItem(questionText, options, answer, img) {
   quizItems.push(this);
 }
 
-new QuizItem('What is your biggest fear?', ['Spiders', 'Heights', 'Death'], [2, 0, 1], '');
-new QuizItem('Who is your idol?', ['Barack Obama', 'Dwayne Johnson', 'Taylor Swift'], [1, 2, 0], '');
+new QuizItem('What is your biggest fear?', ['Spiders', 'Heights', 'Death'], [4, 0, 2], '');
+new QuizItem('Who is your idol?', ['Barack Obama', 'Dwayne Johnson', 'Taylor Swift'], [2, 3, 0], '');
 new QuizItem('Where would you go on your dream vacation?', ['Tahiti', 'Paris', 'Tokyo'], [0, 1, 2], '');
 new QuizItem('What is your favorite genre of video games?', ['Shooter', 'RPG', 'Platformer', 'video games are dumb'], [3, 2, 1, -1], '');
 new QuizItem('If you were stuck on a desert island, what would be the one piece of media that gets you through it?', ['The movie Fight Club', 'The book Jurassic Park', 'The game The Witcher 3'], [1, 2, 3], 'imgs/island.jpg');
-new QuizItem('Which do you prefer?', ['A small show with a loud band so I can run around in the pit', 'A large arena with a good sound system so I can take the spectacle in', 'Excuse me? All I need is a nice glass of wine and a quiet evening at home'], [2, 1, -1], '');
-new QuizItem('My dream house...', ['Is gigantic', 'Has a huge yard/is a farm', 'I don\'t really think about it'], [1, 2, 0], '');
-new QuizItem('Somebody...', ['stop me!', 'once told me the world is gonna roll me', 'told me that you had a boyfriend that looked like a girlfriend that I had in February of last year'], [0, 1, 2], '');
-new QuizItem('What are you doing RIGHT NOW?', ['Taking this stupid quiz', 'Getting annoyed at all these questions', 'Wondering how my life led me to this'], [2, 1, 0], '');
+new QuizItem('Which do you prefer?', ['A small show with a loud band so I can run around in the pit', 'A large arena with a good sound system so I can take the spectacle in', 'Excuse me? All I need is a nice glass of wine and a quiet evening at home'], [4, 2, -1], '');
+new QuizItem('My dream house...', ['Is gigantic', 'Has a huge yard/is a farm', 'I don\'t really think about it'], [2, 4, 0], '');
+new QuizItem('Somebody...', ['stop me!', 'once told me the world is gonna roll me', 'told me that you had a boyfriend that looked like a girlfriend that I had in February of last year'], [0, 2, 3], '');
+new QuizItem('What are you doing RIGHT NOW?', ['Taking this stupid quiz', 'Getting annoyed at all these questions', 'Wondering how my life led me to this'], [2, 1, 0], 'imgs/curious.jpg');
 new QuizItem('Anything else we should know?', ['why are you asking me this', 'What is this, a job interview?', 'No, I think you\'ve pretty much covered it.'], [1, 0, 2], '');
 var quiz1 = new Quiz('vQuiz', quizItems, ['oh god how did this get here i\'m bad at computers', 'You\'re the one, Neo', 'You\'re a wizard, Harry']);
 // var quiz2 = new Quiz('quiz2', quizItems)
@@ -182,15 +182,15 @@ function nextQuestion() {
 function quizResult() {
   if (quiz1.score < 10) {
     localStorage.setItem(quiz1.name, quiz1.results[0]);
-    localStorage.setItem('recentQuiz', quiz1.results[0]);
+    localStorage.setItem('recentQuiz', JSON.stringify([quiz1.results[0], quiz1.name]));
   }
   else if (quiz1.score < 20) {
     localStorage.setItem(quiz1.name, quiz1.results[1]);
-    localStorage.setItem('recentQuiz', quiz1.results[1]);
+    localStorage.setItem('recentQuiz', JSON.stringify([quiz1.results[1], quiz1.name]));
   }
   else {
     localStorage.setItem(quiz1.name, quiz1.results[2]);
-    localStorage.setItem('recentQuiz', quiz1.results[2]);
+    localStorage.setItem('recentQuiz', JSON.stringify([quiz1.results[2], quiz1.name]));
   }
 }
 
