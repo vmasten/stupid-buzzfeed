@@ -1,7 +1,7 @@
 'use strict';
 
 function renderResults() {
-  document.getElementById('greetingH2').textContent = 'Here are you results ' + localStorage.getItem(username) + '!';
+  document.getElementById('greetingH2').textContent = 'Here are you results ' + localStorage.getItem('userName') + '!';
   document.getElementById('currentResult').textContent = 'Your result from the ' + 'quiz name' + ' quiz was: ' + 'result';
 
   if (localStorage.quiz1.name) {

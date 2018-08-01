@@ -144,8 +144,8 @@ function nextQuestion() {
       if (scoreAdder[i].checked)
         quiz1.score += parseInt(scoreAdder[i].value);
     }
+    quizResult();
   }
-  quizResult();
 }
 
 
@@ -162,6 +162,13 @@ function quizResult() {
     localStorage.setItem(quiz1.name, quiz1.results[2]);
     localStorage.setItem('recentQuiz', JSON.stringify([quiz1.results[2], quiz1.name]));
   }
+  sendToResults();
 }
+
+
+function sendToResults() {
+  location.href = 'results.html';
+}
+
 
 renderStart();
