@@ -38,7 +38,19 @@ new QuizItem('Somebody...', ['stop me!', 'once told me the world is gonna roll m
 new QuizItem('What are you doing RIGHT NOW?', ['Taking this stupid quiz', 'Getting annoyed at all these questions', 'Wondering how my life led me to this'], [2, 1, 0], 'imgs/curious.jpg');
 new QuizItem('Anything else we should know?', ['why are you asking me this', 'What is this, a job interview?', 'No, I think you\'ve pretty much covered it.'], [1, 0, 2], '');
 var quiz1 = new Quiz('vQuiz', quizItems, ['oh god how did this get here i\'m bad at computers', 'You\'re the one, Neo', 'You\'re a wizard, Harry']);
-// var quiz2 = new Quiz('quiz2', quizItems)
+quizItems = [];
+
+new QuizItem('What dish sounds most appealing to you on a cold winter evening?', ['Stew', 'Raw onions', 'Ice Cream'], [3, 1, 2], '');
+new QuizItem('When ordering food, what\'s your response to \"how spicy?\"', ['No spice, please', '2 chilis', 'Bring on the ghost peppers!'], [1, 2, 3], '');
+new QuizItem('Fruits, vegetables, or meat?', ['Veggies', 'Fruits', 'I am a true carnivore, so pass the meat!'], [2, 1, 3], '');
+new QuizItem('What condiment is best; ranch dressing or ketchup?', ['Ranch Dressing', 'Ketchup/Catsup', 'neither, those are disgusting'], [1, 2, 3], '');
+new QuizItem('What tops your ice cream sundae?', ['Whipped cream', 'Chocolate syrup', 'Just one cherry'], [3, 2, 1], '');
+new QuizItem('Tacos, burgers, or pizza?', ['Tacos', 'Burgers', 'Pizza'], [3, 1, 2], )
+new QuizItem('Which is your favorite utensil?', ['Fork', 'Knife', 'Spoon'], [1, 2, 3], '');
+new QuizItem('Would you rather cook dinner, order delivery, or eat out?', ['Cook at home', 'Order Delivery', 'Dining out'], [3, 1, 2], '');
+new QuizItem('Do you prefer sweet, salty, or spicy?', ['spicy', 'salty', 'sweet'], [3, 2, 1], '');
+new QuizItem('Choose the delicacy you are forced to eat:', ['Surströmming (fermented herring)', 'Balut (boiled developed bird egg)', 'Kiviak (Auk bird stuffed and fermented in seal carcass)'], [2, 1, 3], '');
+var quiz2 = new Quiz('cQuiz', quizItems, ['low result', 'medium result', 'high result']);
 quizItems = [];
 
 var startButton = document.createElement('button');
@@ -66,39 +78,10 @@ function renderStart() {
     quizId[i].appendChild(quizText);
     quizId[i].addEventListener('click', renderQuiz);
   }
-
-
-function renderStart() {
-  var q1Div = document.createElement('div');
-  q1Div.setAttribute('class', 'quizDiv');
-  var q2Div = document.createElement('div');
-  q2Div.setAttribute('class', 'quizDiv');
-  var q3Div = document.createElement('div');
-  q3Div.setAttribute('class', 'quizDiv');
-  var buttonSection = document.createElement('section');
-  var q1Img = document.createElement('img');
-  q1Img.src = 'http://via.placeholder.com/350x150';
-  var q2Img = document.createElement('img');
-  q2Img.src = 'http://via.placeholder.com/350x150';
-  var q3Img = document.createElement('img');
-  q3Img.src = 'http://via.placeholder.com/350x150';
-  var startButton = document.createElement('button');
-  startButton.textContent = 'Take a Quiz!';
-  startButton.addEventListener('click', renderQuiz);
-
-  q1Div.appendChild(q1Img);
-  q2Div.appendChild(q2Img);
-  q3Div.appendChild(q3Img);
-  document.getElementById('startDiv').appendChild(q1Div);
-  document.getElementById('startDiv').appendChild(q2Div);
-  document.getElementById('startDiv').appendChild(q3Div);
-  buttonSection.appendChild(startButton);
-  document.getElementById('startDiv').appendChild(buttonSection);
 }
 
-
 function renderQuiz() {
-  chooseQuiz();
+  console.log('we\'re here');
   document.getElementById('startDiv').style.display = 'none';
   var newDiv = document.createElement('div');
 
@@ -113,7 +96,7 @@ function renderQuiz() {
   newDiv.appendChild(createH3);
   for (var j = 0; j < quiz1.quizItems[quizQuestion].options.length; j++) {
     var divEl = document.createElement('p');
-    var inputEl = document.createElement('INPUT');
+    var inputEl = document.createElement('input');
 
     inputEl.setAttribute('type', 'radio');
     inputEl.setAttribute('id', 'button' + j);
@@ -127,6 +110,7 @@ function renderQuiz() {
     divEl.appendChild(inputEl);
     divEl.appendChild(createLabel);
     newDiv.appendChild(divEl);
+    console.log('now we\'re here');
   }
 
 
@@ -137,6 +121,10 @@ function renderQuiz() {
 
   newDiv.appendChild(submitEl);
   submitEl.addEventListener('click', nextQuestion);
+
+  var main = document.getElementById('main');
+  main.appendChild(newDiv);
+  console.log('after append to new div');
 
 }
 
