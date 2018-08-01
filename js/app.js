@@ -60,10 +60,10 @@ function renderStart() {
   for (var i = 0; i < quizId.length; i++) {
     var qh3 = document.createElement('h3');
     qh3.textContent = quizzes[i].name;
-    quizId[i].appendChild(qh3);
     var qPic = document.createElement('img');
-    qPic.src = 'http://via.placeholder.com/300x100';
+    qPic.src = 'http://via.placeholder.com/620x200';
     quizId[i].appendChild(qPic);
+    quizId[i].appendChild(qh3);
     var quizText = document.createElement('p');
     quizText.textContent = 'Click Here!';
     quizId[i].appendChild(quizText);
@@ -90,7 +90,6 @@ function chooseQuiz() {
   quizzesPlayed.push(chosenQuiz);
   saveToLocalStorage();
 }
-
 
 function renderQuiz() {
   chooseQuiz();
@@ -124,12 +123,11 @@ function renderQuiz() {
   submitEl.setAttribute('type', 'submit');
   submitEl.setAttribute('value', 'Next');
   submitEl.setAttribute('id', 'question' + submitID);
-  
+
   newDiv.appendChild(submitEl);
   submitEl.addEventListener('click', nextQuestion);
 
-  
-  
+
   //working prototype
 
   // for (var i in quiz1.quizItems) {
