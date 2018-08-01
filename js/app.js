@@ -63,106 +63,101 @@ function renderStart() { // function that starts the quiz flow
     localStorage.setItem('userName', userNameInput); // saving user name into localStorage
   }
 
-  if (localStorage.quizzesPlayedArray) { // if there is data in localStorage, parse it into quizzedPlayedArray for results to feed off of
-    quizzesPlayed = JSON.parse(localStorage.getItem('quizzesPlayedArray')); 
+  if (localStorage.quizzesPlayedArray) { // if there is data in localStorage
+    quizzesPlayed = JSON.parse(localStorage.getItem('quizzesPlayedArray')); // parse it into quizzedPlayedArray for results to feed off of
   }
 
-  for (var i = 0; i < quizzes.length; i++) { // loop to create html elements for the quiz
-    var qh3 = document.createElement('h3');
+  for (var i = 0; i < quizzes.length; i++) { // loop to create html elements for the quizzes on index.html
+    var qh3 = document.createElement('h3'); // creating h3 element
     qh3.textContent = quizzes[i].name; // h3 w/quiz name
-    quizId[i].appendChild(qh3);
-    var qPic = document.createElement('img');
-    qPic.src = 'http://via.placeholder.com/300x100'; // img placeholder
-    quizId[i].appendChild(qPic);
-    var quizText = document.createElement('p');
-    quizText.textContent = 'Click Here!';
-    quizId[i].appendChild(quizText);
-    quizId[i].addEventListener('click', renderQuiz);
+    quizId[i].appendChild(qh3); // append h3 to quizId which is a div that already lives on html
+    var qPic = document.createElement('img'); // qPic = img element
+    qPic.src = 'http://via.placeholder.com/300x100'; // img placeholder for the quiz
+    quizId[i].appendChild(qPic); // appending img element to the identified div for quiz
+    var quizText = document.createElement('p'); // create a p element for text under picture in quiz card
+    quizText.textContent = 'Click Here!'; // text content for p
+    quizId[i].appendChild(quizText); // appending p element to identified div for quiz
+    quizId[i].addEventListener('click', renderQuiz); // adds an eventListener to watch for a click on quiz
   }
 }
 
-function renderQuiz() {
-  console.log('we\'re here');
-  document.getElementById('startDiv').style.display = 'none';
-  var newDiv = document.createElement('div');
+function renderQuiz() { // function to render the quiz questions after selection
+  document.getElementById('startDiv').style.display = 'none'; // finding div that will be under the quiz
+  var newDiv = document.createElement('div'); // creating a new div that will hold the quiz questions
 
-  if (quiz1.quizItems[quizQuestion].img !== '') {
-    var img = document.createElement('img');
-    img.src = quiz1.quizItems[quizQuestion].img;
-    newDiv.appendChild(img);
+  if (quiz1.quizItems[quizQuestion].img !== '') { // if there is an img for the quiz question
+    var img = document.createElement('img'); // create an img element
+    img.src = quiz1.quizItems[quizQuestion].img; // set element to be the img for the question
+    newDiv.appendChild(img); // append img element to the newDiv to hold the quiz questions
   }
 
-  var createH3 = document.createElement('h3');
-  createH3.textContent = quiz1.quizItems[quizQuestion].questionText;
-  newDiv.appendChild(createH3);
-  for (var j = 0; j < quiz1.quizItems[quizQuestion].options.length; j++) {
-    var divEl = document.createElement('p');
-    var inputEl = document.createElement('input');
+  var createH3 = document.createElement('h3'); // creates an h3 element
+  createH3.textContent = quiz1.quizItems[quizQuestion].questionText; // sets text content to the question text
+  newDiv.appendChild(createH3); // append the h3 element to the newDiv to hold the quiz question itself
+  for (var j = 0; j < quiz1.quizItems[quizQuestion].options.length; j++) { // for each of the options on the quiz question
+    var divEl = document.createElement('p'); // create a p element
+    var inputEl = document.createElement('input'); // and create an input element
 
-    inputEl.setAttribute('type', 'radio');
-    inputEl.setAttribute('id', 'button' + j);
-    inputEl.setAttribute('value', quiz1.quizItems[quizQuestion].answerRanking[j]);
-    inputEl.setAttribute('name', quiz1.quizItems[quizQuestion].questionText);
+    inputEl.setAttribute('type', 'radio'); // set attribute of input type=radio
+    inputEl.setAttribute('id', 'button' + j); // set attribute of input id=button
+    inputEl.setAttribute('value', quiz1.quizItems[quizQuestion].answerRanking[j]); // set attribute of input value=answer rank
+    inputEl.setAttribute('name', quiz1.quizItems[quizQuestion].questionText); // set attribute of input name=questionText
 
-    var createLabel = document.createElement('label');
-    createLabel.setAttribute('for', 'button' + j);
-    createLabel.textContent = quiz1.quizItems[quizQuestion].options[j];
+    var createLabel = document.createElement('label'); // create a label element
+    createLabel.setAttribute('for', 'button' + j); // set attribute of label for=button#
+    createLabel.textContent = quiz1.quizItems[quizQuestion].options[j]; //set text of label to question option
 
-    divEl.appendChild(inputEl);
-    divEl.appendChild(createLabel);
-    newDiv.appendChild(divEl);
-    console.log('now we\'re here');
+    divEl.appendChild(inputEl); // append radio button to p element in quiz question
+    divEl.appendChild(createLabel); // append label to p element in quiz question
+    newDiv.appendChild(divEl); // append the p element (with its children) to quiz div
   }
 
+  var submitEl = document.createElement('INPUT'); // create input element
+  submitEl.setAttribute('type', 'submit'); // set attribute of input type=submit
+  submitEl.setAttribute('value', 'Next'); // set attribute of input value=Next
+  submitEl.setAttribute('id', 'question' + submitID); // set attribute of input id=question#
 
-  var submitEl = document.createElement('INPUT');
-  submitEl.setAttribute('type', 'submit');
-  submitEl.setAttribute('value', 'Next');
-  submitEl.setAttribute('id', 'question' + submitID);
+  newDiv.appendChild(submitEl); // append input to quiz div
+  submitEl.addEventListener('click', nextQuestion); // add an eventListener for a click on the submit, runs nextQuestion() function
 
-  newDiv.appendChild(submitEl);
-  submitEl.addEventListener('click', nextQuestion);
-
-  var main = document.getElementById('main');
-  main.appendChild(newDiv);
-  console.log('after append to new div');
-
+  var main = document.getElementById('main'); // get the main element via id from document
+  main.appendChild(newDiv); // append the quiz div to the main
 }
 
 
-function nextQuestion() {
+function nextQuestion() { // function to display next question when submit button clicked
 
-  document.getElementById('question' + submitID).style.display = 'none';
-  submitID++;
-  quizQuestion++;
-  if (quizQuestion < quiz1.quizItems.length)
+  document.getElementById('question' + submitID).style.display = 'none'; // sets the input element of last question to disappear
+  submitID++; // next submitId for next question
+  quizQuestion++; // next quiz question for next selections
+  if (quizQuestion < quiz1.quizItems.length) // if the quiz question number is less than number of questions
   {
-    renderQuiz();
+    renderQuiz(); // display the quiz by running renderQuiz()
   }
-  else {
-    var scoreAdder = document.getElementsByTagName('input');
-    for (var i in scoreAdder) {
-      if (scoreAdder[i].checked)
-        quiz1.score += parseInt(scoreAdder[i].value);
+  else { // if the quiz question is equal to or greater than the number of questions
+    var scoreAdder = document.getElementsByTagName('input'); // variable that gets the input
+    for (var i in scoreAdder) { // for each index in scoreAdder
+      if (scoreAdder[i].checked) // if scoreAdder has been checked/selected
+        quiz1.score += parseInt(scoreAdder[i].value); // add to quiz score value of scoreAdder (option selected)
     }
   }
-  quizResult();
+  quizResult(); // post the quiz results based on score
 }
 
 
-function quizResult() {
-  if (quiz1.score < 10) {
-    localStorage.setItem(quiz1.name, quiz1.results[0]);
-    localStorage.setItem('recentQuiz', JSON.stringify([quiz1.results[0], quiz1.name]));
+function quizResult() { // function to display the quiz results
+  if (quiz1.score < 10) { // if the user's score is less than 10
+    localStorage.setItem(quiz1.name, quiz1.results[0]); // add to localStorage the result from the quiz object's results
+    localStorage.setItem('recentQuiz', JSON.stringify([quiz1.results[0], quiz1.name])); // add to local storage that this result is for recent quiz
   }
-  else if (quiz1.score < 20) {
-    localStorage.setItem(quiz1.name, quiz1.results[1]);
-    localStorage.setItem('recentQuiz', JSON.stringify([quiz1.results[1], quiz1.name]));
+  else if (quiz1.score < 20) { // if the user's score is 10-19
+    localStorage.setItem(quiz1.name, quiz1.results[1]); // add to localStorage the result from the quiz object's results
+    localStorage.setItem('recentQuiz', JSON.stringify([quiz1.results[1], quiz1.name])); // add to local storage that this result is for recent quiz
   }
-  else {
-    localStorage.setItem(quiz1.name, quiz1.results[2]);
-    localStorage.setItem('recentQuiz', JSON.stringify([quiz1.results[2], quiz1.name]));
+  else { // if the user's scrore is 20+
+    localStorage.setItem(quiz1.name, quiz1.results[2]); // add to localStorage the result from the quiz object's results
+    localStorage.setItem('recentQuiz', JSON.stringify([quiz1.results[2], quiz1.name])); // add to local storage that this result is for recent quiz
   }
 }
 
-renderStart();
+renderStart(); // run the renderStart() function
