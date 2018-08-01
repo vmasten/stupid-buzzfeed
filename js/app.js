@@ -53,6 +53,19 @@ new QuizItem('Choose the delicacy you are forced to eat:', ['Surströmming (ferm
 var quiz2 = new Quiz('cQuiz', quizItems, ['low result', 'medium result', 'high result']);
 quizItems = [];
 
+new QuizItem('How much outside space do you have?', ['A little', 'A lot', 'Way to much'], [1, 2, 3], '');
+new QuizItem('What is your Ideal enviroment?', ['PNW', 'An Island', 'The Desert'], [0, 1, 3], '');
+new QuizItem('What would you prefer to eat?', ['Shrimp', 'Steak', 'Salad'], [0, 2, 3], '');
+new QuizItem('What kind of move would you watch?', ['Romance', 'Action', 'Documentary'], [1, 2, 3], '')
+new QuizItem('What is your form of transportation?', ['Public Transportation', 'Car/Truck', 'Walk/Bike'], [0, 1, 3], '');
+new QuizItem('What is your choice of spirits?', ['Whiskey', 'Tequila', 'Gin'], [0, 2, 3], '');
+new QuizItem('Train a whole party of Pokemon, or train one overpowered Pokemon?', ['What?', 'A Whole Party', 'One Pokemon'], [0, 1, 3], '');
+new QuizItem('What skill would you want to learn?', ['Fishing', 'Hunting', 'Foraging'], [0, 2, 3], '');
+new QuizItem('Which artis do you appreciate most?', ['Salvador Dali', 'Vincent van Gogh', 'Bob Ross'], [1, 2, 3], '');
+new QuizItem('Are you a morning person?', ['Only because I never went to sleep last night', 'Yes', 'No'], [0, 1, 3], '');
+var quiz3 = new Quiz('kQuiz', quizItems, ['Platypus', 'Liger', 'Elephant']);
+quizItems = [];
+
 var startButton = document.createElement('button');
 function renderStart() {
   if (localStorage.userName) {
@@ -81,7 +94,6 @@ function renderStart() {
 }
 
 function renderQuiz() {
-  console.log('we\'re here');
   document.getElementById('startDiv').style.display = 'none';
   var newDiv = document.createElement('div');
 
@@ -110,7 +122,6 @@ function renderQuiz() {
     divEl.appendChild(inputEl);
     divEl.appendChild(createLabel);
     newDiv.appendChild(divEl);
-    console.log('now we\'re here');
   }
 
 
@@ -122,10 +133,7 @@ function renderQuiz() {
   newDiv.appendChild(submitEl);
   submitEl.addEventListener('click', nextQuestion);
 
-  var main = document.getElementById('main');
-  main.appendChild(newDiv);
-  console.log('after append to new div');
-
+  document.getElementById('main').appendChild(newDiv);
 }
 
 
@@ -162,11 +170,6 @@ function quizResult() {
     localStorage.setItem(quiz1.name, quiz1.results[2]);
     localStorage.setItem('recentQuiz', JSON.stringify([quiz1.results[2], quiz1.name]));
   }
-  sendToResults();
-}
-
-
-function sendToResults() {
   location.href = 'results.html';
 }
 
