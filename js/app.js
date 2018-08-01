@@ -9,115 +9,105 @@ var quizItems = [];
 var quizQuestion = 0;
 var submitID = 0;
 
-var Quiz = function (name, quizItems) {
+var Quiz = function(name, quizItems, results) {
   this.name = name;
   this.score = 0;
   this.quizItems = quizItems;
-
-  quizzes.push(this);
+  this.results = results;
 };
 
 function QuizItem(questionText, options, answer, img) {
   this.questionText = questionText;
   this.options = options;
-  // this.answerRanking = answerRanking;
+  this.answerRanking = answerRanking;
   this.img = img;
 
   quizItems.push(this);
 }
 
-new QuizItem('What is your biggest fear?', ['Spiders', 'Heights', 'Death'], [2, 0, 1], 'img/path');
-new QuizItem('Who is your idol?', ['Barack Obama', 'Dwayne Johnson', 'Taylor Swift'], [1, 2, 0], 'img/path');
-new QuizItem('Where would you go on your dream vacation?', ['Tahiti', 'Paris', 'Tokyo'], [0, 1, 2], 'img/path');
-new QuizItem('What is your favorite genre of video games?', ['Shooter', 'RPG', 'Platformer', 'video games are dumb'], [3, 2, 1, -1], 'img/path');
-new QuizItem('is this a sample question?', ['option1', 'option2', 'option3'], 'option2', 'img/path');
-var quiz1 = new Quiz('quiz1', quizItems);
-var quiz2 = new Quiz('quiz2', quizItems);
-var quiz3 = new Quiz('quiz3', quizItems);
-var quiz4 = new Quiz('quiz4', quizItems);
-var quiz5 = new Quiz('quiz5', quizItems);
+new QuizItem('What is your biggest fear?', ['Spiders', 'Heights', 'Death'], [4, 0, 2], '');
+new QuizItem('Who is your idol?', ['Barack Obama', 'Dwayne Johnson', 'Taylor Swift'], [2, 3, 0], '');
+new QuizItem('Where would you go on your dream vacation?', ['Tahiti', 'Paris', 'Tokyo'], [0, 1, 2], '');
+new QuizItem('What is your favorite genre of video games?', ['Shooter', 'RPG', 'Platformer', 'video games are dumb'], [3, 2, 1, -1], '');
+new QuizItem('If you were stuck on a desert island, what would be the one piece of media that gets you through it?', ['The movie Fight Club', 'The book Jurassic Park', 'The game The Witcher 3'], [1, 2, 3], 'imgs/island.jpg');
+new QuizItem('Which do you prefer?', ['A small show with a loud band so I can run around in the pit', 'A large arena with a good sound system so I can take the spectacle in', 'Excuse me? All I need is a nice glass of wine and a quiet evening at home'], [4, 2, -1], '');
+new QuizItem('My dream house...', ['Is gigantic', 'Has a huge yard/is a farm', 'I don\'t really think about it'], [2, 4, 0], '');
+new QuizItem('Somebody...', ['stop me!', 'once told me the world is gonna roll me', 'told me that you had a boyfriend that looked like a girlfriend that I had in February of last year'], [0, 2, 3], '');
+new QuizItem('What are you doing RIGHT NOW?', ['Taking this stupid quiz', 'Getting annoyed at all these questions', 'Wondering how my life led me to this'], [2, 1, 0], 'imgs/curious.jpg');
+new QuizItem('Anything else we should know?', ['why are you asking me this', 'What is this, a job interview?', 'No, I think you\'ve pretty much covered it.'], [1, 0, 2], '');
+var quiz1 = new Quiz('vQuiz', quizItems, ['oh god how did this get here i\'m bad at computers', 'You\'re the one, Neo', 'You\'re a wizard, Harry']);
 quizItems = [];
 
-//prototype score tracker
-//should eventually be modified to use an event listener
-// function correctAnswer(quiz) {
-//   //for loop to iterate through questions goes here
-//   if (quiz.quizItems[0].options[1] === quiz.quizItems[0].answer) {
-//     quiz.score++;
-//   }
+new QuizItem('What dish sounds most appealing to you on a cold winter evening?', ['Stew', 'Raw onions', 'Ice Cream'], [3, 1, 2], '');
+new QuizItem('When ordering food, what\'s your response to \"how spicy?\"', ['No spice, please', '2 chilis', 'Bring on the ghost peppers!'], [1, 2, 3], '');
+new QuizItem('Fruits, vegetables, or meat?', ['Veggies', 'Fruits', 'I am a true carnivore, so pass the meat!'], [2, 1, 3], '');
+new QuizItem('What condiment is best; ranch dressing or ketchup?', ['Ranch Dressing', 'Ketchup/Catsup', 'neither, those are disgusting'], [1, 2, 3], '');
+new QuizItem('What tops your ice cream sundae?', ['Whipped cream', 'Chocolate syrup', 'Just one cherry'], [3, 2, 1], '');
+new QuizItem('Tacos, burgers, or pizza?', ['Tacos', 'Burgers', 'Pizza'], [3, 1, 2], )
+new QuizItem('Which is your favorite utensil?', ['Fork', 'Knife', 'Spoon'], [1, 2, 3], '');
+new QuizItem('Would you rather cook dinner, order delivery, or eat out?', ['Cook at home', 'Order Delivery', 'Dining out'], [3, 1, 2], '');
+new QuizItem('Do you prefer sweet, salty, or spicy?', ['spicy', 'salty', 'sweet'], [3, 2, 1], '');
+new QuizItem('Choose the delicacy you are forced to eat:', ['Surströmming (fermented herring)', 'Balut (boiled developed bird egg)', 'Kiviak (Auk bird stuffed and fermented in seal carcass)'], [2, 1, 3], '');
+var quiz2 = new Quiz('cQuiz', quizItems, ['low result', 'medium result', 'high result']);
+quizItems = [];
 
-// }
-
-
-// Kris's work below
-
-var startButton = document.createElement('button');
 function renderStart() {
-  if (localStorage.quizzesPlayedArray) {
-    quizzesPlayed = JSON.parse(localStorage.getItem('quizzesPlayedArray'));
-  }
+  var q1Div = document.createElement('div');
+  q1Div.setAttribute('class', 'quizDiv');
+  var q2Div = document.createElement('div');
+  q2Div.setAttribute('class', 'quizDiv');
+  var q3Div = document.createElement('div');
+  q3Div.setAttribute('class', 'quizDiv');
+  var buttonSection = document.createElement('section');
+  var q1Img = document.createElement('img');
+  q1Img.src = 'http://via.placeholder.com/350x150';
+  var q2Img = document.createElement('img');
+  q2Img.src = 'http://via.placeholder.com/350x150';
+  var q3Img = document.createElement('img');
+  q3Img.src = 'http://via.placeholder.com/350x150';
+  var startButton = document.createElement('button');
+  startButton.textContent = 'Take a Quiz!';
+  startButton.addEventListener('click', renderQuiz);
 
-  for (var i = 0; i < quizId.length; i++) {
-    var qh3 = document.createElement('h3');
-    qh3.textContent = quizzes[i].name;
-    var qPic = document.createElement('img');
-    qPic.src = 'http://via.placeholder.com/620x200';
-    quizId[i].appendChild(qPic);
-    quizId[i].appendChild(qh3);
-    var quizText = document.createElement('p');
-    quizText.textContent = 'Click Here!';
-    quizId[i].appendChild(quizText);
-  }
-
-  // if (quizzesPlayed.length < quizzes.length) {
-  //   startButton.addEventListener('click', renderQuiz);
-  // }
-}
-
-
-function randomQuiz() {
-  return quizzes[Math.floor(Math.random() * quizzes.length)];
-}
-
-
-function chooseQuiz() {
-  var chosenQuiz = randomQuiz();
-
-  while (quizzesPlayed.includes(chosenQuiz)) {
-    chosenQuiz = randomQuiz();
-  }
-
-  quizzesPlayed.push(chosenQuiz);
-  saveToLocalStorage();
+  q1Div.appendChild(q1Img);
+  q2Div.appendChild(q2Img);
+  q3Div.appendChild(q3Img);
+  document.getElementById('startDiv').appendChild(q1Div);
+  document.getElementById('startDiv').appendChild(q2Div);
+  document.getElementById('startDiv').appendChild(q3Div);
+  buttonSection.appendChild(startButton);
+  document.getElementById('startDiv').appendChild(buttonSection);
 }
 
 function renderQuiz() {
   chooseQuiz();
   document.getElementById('startDiv').style.display = 'none';
+  var newDiv = document.createElement('div');
+  if (quiz1.quizItems[quizQuestion].img !== '') {
+    var img = document.createElement('img');
+    img.src = quiz1.quizItems[quizQuestion].img;
+    newDiv.appendChild(img);
 
-  for (var i in quiz1.quizItems) {
-    var newDiv = document.createElement('div');
-    var createH3 = document.createElement('h3');
-    createH3.textContent = quiz1.quizItems[i].questionText;
-    newDiv.appendChild(createH3);
+  }
+  var createH3 = document.createElement('h3');
+  createH3.textContent = quiz1.quizItems[quizQuestion].questionText;
+  newDiv.appendChild(createH3);
+  for (var j = 0; j < quiz1.quizItems[quizQuestion].options.length; j++) {
+    var divEl = document.createElement('p');
+    var inputEl = document.createElement('INPUT');
 
-    for (var j = 0; j < quiz1.quizItems[i].options.length; j++) {
-      var createOptions = document.createElement('INPUT');
-      createOptions.setAttribute('type', 'radio');
-      createOptions.setAttribute('id', 'button' + j);
-      var createLabel = document.createElement('label');
-      createLabel.setAttribute('for', 'button' + j);
-      createLabel.textContent = quiz1.quizItems[i].options[j];
-      createOptions.appendChild(createLabel);
-      // createOptions.setAttribute('value', quiz1.quizItems[i].options[j]);
-      //createOptions.textContent = quiz1.quizItems[i].options[j];
-      //x.appendChild(createOptions);
-      newDiv.appendChild(createOptions);
-    }
+    inputEl.setAttribute('type', 'radio');
+    inputEl.setAttribute('id', 'button' + j);
+    inputEl.setAttribute('value', quiz1.quizItems[quizQuestion].answerRanking[j]);
+    inputEl.setAttribute('name', quiz1.quizItems[quizQuestion].questionText);
 
-    document.getElementById('main').appendChild(newDiv);
+    var createLabel = document.createElement('label');
+    createLabel.setAttribute('for', 'button' + j);
+    createLabel.textContent = quiz1.quizItems[quizQuestion].options[j];
 
-    // document.getElementById('main').
+    divEl.appendChild(inputEl);
+    divEl.appendChild(createLabel);
+    newDiv.appendChild(divEl);
   }
   var submitEl = document.createElement('INPUT');
   submitEl.setAttribute('type', 'submit');
@@ -127,53 +117,40 @@ function renderQuiz() {
   newDiv.appendChild(submitEl);
   submitEl.addEventListener('click', nextQuestion);
 
-
-  //working prototype
-
-  // for (var i in quiz1.quizItems) {
-  //   var newDiv = document.createElement('div');
-  //   var createH3 = document.createElement('h3');
-  //   createH3.textContent = quiz1.quizItems[i].questionText;
-  //   newDiv.appendChild(createH3);
-  //   var createOptions = document.getElementById('INPUT');
-  //   // for (var j = 0; j < quiz1.quizItems[i].options.length; j++) {
-  //   var createOptions = document.createElement('INPUT');
-  //   createOptions.setAttribute('type', 'radio');
-  //   createOptions.setAttribute('id', 'button' + j);
-  //   createOptions.setAttribute('name', quiz1.quizItems[i].questionText);
-  //   var createLabel = document.createElement('label');
-  //   createLabel.setAttribute('for', 'button' + j);
-  //   createLabel.textContent = quiz1.quizItems[i].options[j];
-  //   newDiv.appendChild(createLabel);
-  //   newDiv.appendChild(createOptions);
-  // }
-  document.getElementById('main').appendChild(newDiv);
-
-  // document.getElementById('main').
 }
 
-function nextQuestion(score) {
-  if (document.getElementById('button0').checked) {
-    quiz1.score += parseInt(document.getElementById('button0').value);
-  }
-  else if (document.getElementById('button1').checked) {
-    quiz1.score += parseInt(document.getElementById('button1').value);
-  }
-  else {
-    quiz1.score += parseInt(document.getElementById('button2').value);
-  }
-  console.log(quiz1.score);
+function nextQuestion() {
+
   document.getElementById('question' + submitID).style.display = 'none';
   submitID++;
   quizQuestion++;
-  renderQuiz();
+  if (quizQuestion < quiz1.quizItems.length)
+  {
+    renderQuiz();
+  }
+  else {
+    var scoreAdder = document.getElementsByTagName('input');
+    for (var i in scoreAdder) {
+      if (scoreAdder[i].checked)
+        quiz1.score += parseInt(scoreAdder[i].value);
+    }
+  }
+  quizResult();
 }
 
-
-
-function saveToLocalStorage() {
-  localStorage.setItem('quizzesPlayedArray', JSON.stringify(quizzesPlayed));
+function quizResult() {
+  if (quiz1.score < 10) {
+    localStorage.setItem(quiz1.name, quiz1.results[0]);
+    localStorage.setItem('recentQuiz', JSON.stringify([quiz1.results[0], quiz1.name]));
+  }
+  else if (quiz1.score < 20) {
+    localStorage.setItem(quiz1.name, quiz1.results[1]);
+    localStorage.setItem('recentQuiz', JSON.stringify([quiz1.results[1], quiz1.name]));
+  }
+  else {
+    localStorage.setItem(quiz1.name, quiz1.results[2]);
+    localStorage.setItem('recentQuiz', JSON.stringify([quiz1.results[2], quiz1.name]));
+  }
 }
-
 
 renderStart();
