@@ -8,7 +8,6 @@
 header {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   position: fixed;
-  padding-top: 32px;
   top: 0;
   right: 0;
   left: 0;
@@ -113,6 +112,8 @@ aside {
 .column-wrapper {
   width: 964px;
   /* outline: dashed 5px turquoise; */
+  padding: 16px 0px;
+  background-color: white;
   margin-left: auto;
   margin-right: auto;
 }
