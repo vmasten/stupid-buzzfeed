@@ -18,10 +18,10 @@ var Quiz = function(name, quizItems, results) {
   quizzes.push(this);
 };
 
-function QuizItem(questionText, options, answer, img) {
+function QuizItem(questionText, options, answerRanking, img) {
   this.questionText = questionText;
   this.options = options;
-  // this.answerRanking = answerRanking;
+  this.answerRanking = answerRanking;
   this.img = img;
 
   quizItems.push(this);
