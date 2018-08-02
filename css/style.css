@@ -208,6 +208,45 @@ footer {
   margin-bottom: 40px;
 }
 
+/* Facebook button */
+a.button1 {
+  display:inline-block;
+  padding: 15px 0 12px 0;
+  border:0.1em solid #FFFFFF;
+  margin:8px 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:500;
+  color:#FFFFFF;
+  text-align:center;
+  transition: all 0.2s;
+  width: 300px;
+  background-color: #3b5998;
+  border-radius: 5px;
+  font-size: 11pt;
+}
+a.button1:hover{
+  background-color:#1d2d50;
+}
+@media all and (max-width:300px){
+  a.button1{
+  display:block;
+  margin:0.4em auto;
+  }
+} 
+/* Twitter button differences from FB*/
+a.button2 {
+  background-color: #55acee;
+  margin-bottom: 10px;
+  margin:0 0.3em 0.3em 0;
+}
+a.button2:hover{
+  background-color: #0279cc
+}
+
+
 footer * {
   position: sticky;
   display: inline;
