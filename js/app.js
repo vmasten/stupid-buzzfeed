@@ -116,10 +116,12 @@ function renderQuiz(eventValue) { // function to render the quiz questions after
   var newDiv = document.createElement('div'); // creating a new div that will hold the quiz questions
 
 
+
   if (quizNum.quizItems[quizQuestion].img !== '') { // if there is an img for the quiz question
     var img = document.createElement('img'); // create an img element
     img.src = quizNum.quizItems[quizQuestion].img; // set element to be the img for the question
     newDiv.appendChild(img); // append img element to the newDiv to hold the quiz questions
+
   }
 
   var createH3 = document.createElement('h3'); // creates an h3 element
