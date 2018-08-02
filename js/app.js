@@ -105,7 +105,6 @@ function renderStart() { // function that renders the dynamic bits of index.html
     quizText.setAttribute('value', quizzes[i].name);
     quizText.addEventListener('click', function(event) {
       eventValue = event.target.getAttribute('value');
-      console.log(eventValue, 'eventvalue');
       renderQuiz(eventValue);
     }); // adds an eventListener to watch for a click on quiz
     quizId[i].appendChild(quizText); // appending p element to identified div for quiz

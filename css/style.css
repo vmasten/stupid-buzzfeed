@@ -197,9 +197,9 @@ footer {
   background-color: rgb(244, 244, 244);
 }
 
-[id^="question"] {
+/* [id^="question"] {
   margin-bottom: 40px;
-}
+} */
 
 label {
   background-color: white;
