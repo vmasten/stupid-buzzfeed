@@ -221,22 +221,19 @@ p {
   background-color: rgb(244, 244, 244);
 }
 
-
 .quizQuestion {
   display: table;
-  font-size: 20px;
+  margin-top: 20px;
+  font-size: 32px;
   background: black;
   color: white;
 }
 
 .questionOption {
+  font-size: 16px;
+  background-color: white;
   line-height: 2em;
-  padding-left: 20px;
-  background-color: rgb(244, 244, 244);
-}
-
-.input {
-  background-color: rgb(244, 244, 244);
+  padding-left: 40px;
 }
 
 .resultsDiv {
@@ -270,5 +267,10 @@ p {
 }
 
 [id^="question"] {
+
   margin-bottom: 40px;
+} */
+
+label {
+  background-color: white;
 }
