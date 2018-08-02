@@ -3,69 +3,81 @@
 
   <head>
     <title>Stupid BuzzFeed</title>
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="reset.css" /> -->
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
   </head>
 
   <body>
 
     <header>
-      <h1>Stupid BuzzFeed Quizzes</h1>
-
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about-us.html">About Us</a></li>
-        </ul>
-      </nav>
-      
-    </header>
+      <div class="header-wrapper">
+        <div class="float-header">
+          <h1>StupidBuzzFeed</h1>
+          <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="results.html">Results</a></li>
+              <li><a>Tasty</a></li>
+              <li><a>Reviews</a></li>
+              <li><a href="about-us.html">About Us</a></li>
+              <li><input type="text" size="15" value="StupidSearch"></li>
+            </ul>
+          </nav>
+          <img class="sm-button" src="imgs/header-icons.png">
+        </div>
+  </header>
 
     <main id="main">
       <h1>The Creators of Stupid BuzzFeed</h1>
 
       <section class="aboutUsSection">
-
+        
         <aside>
-          <img src="http://via.placeholder.com/140x100" alt="">
+          <img src="imgs/vince.jpg" alt="A picture of Vince.">
         </aside>
-
-        <div class="aboutUsDiv">
-          <h2>Kris Esvelt</h2>
-          <p>Stuff about Kris</p>
-        </div>
-
-      </section>
-
-      <section class="aboutUsSection">
-
-        <aside>
-          <img src="http://via.placeholder.com/140x100" alt="">
-        </aside>
-
+        
         <div class="aboutUsDiv">
           <h2>Vince Masten</h2>
-          <p>Stuff about Vince</p>
-        </div>
-
-      </section>
-
-      <section class="aboutUsSection">
-
-        <aside>
-          <img src="http://via.placeholder.com/140x100" alt="">
-        </aside>
-
-        <div class="aboutUsDiv">
-          <h2>Candice Thomas</h2>
-          <p>Stuff about Candice</p>
+          <p>Vince’s quiz was carefully constructed to tell the user their future, and is definitely not just a series of arbitrary questions with even more arbitrary answers. Vince is studying at Code Fellows to become a Software Engineer, but before that process took over his life, he also enjoyed hanging out with his wife, dog, and cat, going to shows, wrangling his many nieces and nephews, and playing video games. He is thankful that his favorite hobby, listening to music, is still often an option while studying at Code Fellows.</p>
         </div>
         
+      </section>
+      
+      <section class="aboutUsSection">
+        
+        <aside>
+          <img src="imgs/IMG_-vb6j8o.jpg" alt="A picture of Candice.">
+        </aside>
+        
+        <div class="aboutUsDiv">
+          <h2>Candice Thomas</h2>
+          <p>Candice doesn’t get out much, so she lives a life full of memes and absurdity. Formerly supporting online games, Candice now hails from Zillow Group and intends to return after finishing at Code Fellows as a Software Development Intern.</p>
+        </div>
+        
+      </section>
+      
+      <section class="aboutUsSection">
+  
+        <aside>
+          <img src="imgs/kris.jpg" alt="A picture of Kris.">
+        </aside>
+  
+        <div class="aboutUsDiv">
+          <h2>Kris Esvelt</h2>
+          <p>A new developer with a knack for matching you with a good pet, and an addiction to ramen.</p>
+        </div>
+  
       </section>
 
     </main>
 
-    <footer>&copy; 2018</footer>
+    <footer>
+      <div class="content-wrapper">
+        <div class="column-wrapper">
+          <a href="about-us.html"><p class="copyright">&copy; 2018</p></a>
+        </div>
+      </div>
+    </footer>
     <script src="js/about-us.js"></script>
   </body>
 </html>

@@ -1,55 +1,153 @@
-/* * {
+* {
   box-sizing: border-box;
+  background-color: rgb(244, 244, 244);
+  color: #222222;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 header {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   background-color: white;
+  height: 72px;
 }
 
-header * h1 {
-  display: inline;
+h1 {
+  background-color: white;
+  margin-left: 19px;
+  font-weight: bolder;
+  color: #EE3322;
+  float: left;
+  margin: 0 15px;
+  letter-spacing: -1.5pt;
+  font-size: 32px;
 }
 
-.float-header {
-  position: relative;
-  outline: violet 15px dotted;
+h2 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0 15px;
+  font-weight: 800;
+  font-size: 30pt;
+  letter-spacing: -2px;
 }
 
-nav > ul > li {
+h3 {
+font-size: 20pt;
+}
+
+h3, p {
+  background-color: white;
+}
+
+
+nav * {
+  background-color: white;
+}
+
+nav > ul > li, nav > ul > li > a {
   display: inline-block;
   margin: 5px;
+  color: #0f65ef !important;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 11pt;
+}
+
+nav * input {
+  border: 1px solid #aaaaaa6e;
+  height: 30px;
+  color: #999898;
+  padding-left: 10px;
+  margin-left: 20px;
 }
 
 header * img {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 4px;
+  right: 10px;
   display: inline-block;
+  width: 70px;
+  height: 35px;
+}
+
+header:after {
+  content: " ";
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.219);
+  box-shadow:  0 1px 0 hsla(0,3%,67%,.1), 0 2px 1px hsla(0,1%,71%,.1);
 }
 
 main {
-  margin-top: 150px;
+  margin-top: 110px;
+}
+
+main > h1 {
+  float: none;
+  background-color: inherit;
 }
 
 aside {
   float: right;
+  height: 200px;
+}
+
+aside > img {
+  height: 200px;
+}
+
+footer {
+  text-align: right;
+  padding-top: 45px;
+  background: rgb(244, 244, 244);
+  margin-right: 25px;
+}
+
+
+p {
+  background-color: inherit;
 }
 
 /* This class holds the quiz section */
-#startDiv {
-  /* display: none; */
+/* #startDiv {
+  display: none;
+} */
+
+.resultAside {
+  margin-right: 2%;
+}
+
+.resultAside > img {
+  height: 200px;
+  margin-top: 25px;
 }
 
 .aboutUsSection {
   background-color: orange;
   border: solid 2px black;
-  margin-bottom: 2%;
-  width: 80%;
+  margin-top: 2%;
+  margin-left: 5%;
+  width: 60%;
   padding-left: 2%;
+  height: 204px;
+}
+
+.aboutUsDiv {
+  margin-top: 20px;
+  background-color: inherit;
+  height: 100px;
+}
+
+.aboutUsDiv > h2, .aboutUsDiv > p {
+  margin-left: 0px;
+  background-color: inherit;
+}
+
+.float-header {
+  position: relative;
+  background-color: white;
 }
 
 .quizDiv {
@@ -58,22 +156,22 @@ aside {
   width: 33.33%;
 }
 
-/* .content-wrapper {
-  outline: 10px dashed magenta;
+.content-wrapper {
   width: 100%;
-  /* display: none; */
 }
 
-.quiz-card {
-  width: 620px;
-  /* height: 250px; */
-  text-align: center;
-  outline: 10px dashed greenyellow;
+.header-wrapper {
+  width: 964px;
+  padding: 16px 0px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .column-wrapper {
   width: 964px;
-  outline: dashed 5px turquoise;
+  padding: 16px 0px;
+  background-color: rgb(244, 244, 244);
   margin-left: auto;
   margin-right: auto;
 }
@@ -83,11 +181,177 @@ aside {
   margin: 0 10px 0 10px;
   float: left;
 }
+
 .columnright {
   width: 300px;
   display: inline-block;
   margin: 0 10px 0 10px;
+  position: relative;
+  background: white;
+  border-top: 10px solid #f43192;
+  border-radius: 3px;
 }
+
+.columnright > img {
+  width: 300px;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.columnright:last-child {
+  padding-bottom: 20px;
+}
+
 .gutter {
   width: 20px;
+}
+
+.quiz-card {
+  width: 620px;
+  height: 300px;
+  padding-top: 20px;
+  background-color: rgb(255, 255, 255);
+  border: solid 1px rgb(244, 244, 244);
+  box-shadow:  0 1px 0 hsla(0,3%,67%,.1), 0 2px 1px hsla(0,1%,71%,.1);
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.quiz-card > img {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.quiz-card > h3, .quiz-card > p {
+  margin-left: 20px;
+}
+
+
+.copyright {
+  background-color: rgb(244, 244, 244);
+  color: rgba(113, 113, 113, 0.673);
+  text-decoration: none !important;
+}
+
+.quizQuestion {
+  display: table;
+  margin-top: 20px;
+  font-size: 32px;
+  background: black;
+  color: white;
+}
+
+.questionOption {
+  font-size: 16px;
+  background-color: white;
+  line-height: 2em;
+  padding-left: 40px;
+}
+
+.resultsDiv {
+  height: 250px;
+}
+
+.resultsDiv > p {
+  padding-top: 100px;
+  width: 70%;
+  margin-left: 2%;
+}
+
+#lastResultDiv {
+  height: 250px;
+}
+
+#quizDiv {
+  background-color: rgb(244, 244, 244);
+}
+
+#q2Result {
+  padding-top: 40px;
+}
+
+#currentResult {
+  padding-top: 40px;
+}
+
+#greetingH2 {
+  margin-left: 2%;
+}
+
+[id^="question"] {
+  margin-bottom: 40px;
+}
+
+/* Facebook button */
+a.button1 {
+  display:inline-block;
+  padding: 15px 0 12px 18px;
+  border:0.1em solid #FFFFFF;
+  margin:8px 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:500;
+  color:#FFFFFF;
+  text-align:center;
+  transition: all 0.2s;
+  width: 300px;
+  background-color: #3b5998;
+  border-radius: 5px;
+  font-size: 11pt;
+}
+a.button1:hover{
+  background-color:#1d2d50;
+}
+@media all and (max-width:300px){
+  a.button1{
+  display:block;
+  margin:0.4em auto;
+  }
+} 
+/* Twitter button differences from FB*/
+a.button2 {
+  background-color: #55acee;
+  margin-bottom: 10px;
+  margin:0 0.3em 1em 0;
+}
+a.button2:hover{
+  background-color: #0279cc
+}
+
+footer * {
+  position: sticky;
+  display: inline;
+  bottom: 0;
+  right: 0;
+  text-decoration: none;
+}
+
+.fab {
+  display: inline;
+  position: absolute;
+  color: white;
+  background: rgba(0, 0, 0, 0.0);
+  left: 65px;
+}
+
+.fa-facebook {
+  top: 22px;
+  left: 70px;
+}
+
+.fa-twitter {
+  top: 70px;
+}
+
+.social {
+  border: none;
+  background: rgba(0, 0, 0, 0.0);
+
 } */
+
+label {
+  background-color: white;
+}
