@@ -27,7 +27,6 @@ h1 {
 }
 
 h2 {
-  /* outline: dashed 5px magenta; */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 0 15px;
   font-weight: 800;
@@ -109,25 +108,20 @@ aside {
 }
 
 .content-wrapper {
-  /* outline: 10px dashed magenta; */
   width: 100%;
 }
 
 .header-wrapper {
   width: 964px;
-  /* outline: dashed 5px turquoise; */
   padding: 16px 0px;
   background-color: white;
-  /* background-color: rgb(244, 244, 244); */
   margin-left: auto;
   margin-right: auto;
 }
 
 .column-wrapper {
   width: 964px;
-  /* outline: dashed 5px turquoise; */
   padding: 16px 0px;
-  /* background-color: white; */
   background-color: rgb(244, 244, 244);
   margin-left: auto;
   margin-right: auto;
@@ -143,6 +137,20 @@ aside {
   width: 300px;
   display: inline-block;
   margin: 0 10px 0 10px;
+  position: relative;
+  background: white;
+  border-top: 10px solid #f43192;
+  border-radius: 3px;
+}
+
+.columnright > img {
+  width: 300px;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.columnright:last-child {
+  padding-bottom: 20px;
 }
 
 .gutter {
@@ -152,7 +160,6 @@ aside {
 .quiz-card {
   width: 620px;
   height: 300px;
-  /* outline: 5px dashed greenyellow; */
   padding-top: 20px;
   background-color: rgb(255, 255, 255);
   border: solid 1px rgb(244, 244, 244);
@@ -211,7 +218,7 @@ footer {
 /* Facebook button */
 a.button1 {
   display:inline-block;
-  padding: 15px 0 12px 0;
+  padding: 15px 0 12px 18px;
   border:0.1em solid #FFFFFF;
   margin:8px 0.3em 0.3em 0;
   border-radius:0.12em;
@@ -240,7 +247,7 @@ a.button1:hover{
 a.button2 {
   background-color: #55acee;
   margin-bottom: 10px;
-  margin:0 0.3em 0.3em 0;
+  margin:0 0.3em 1em 0;
 }
 a.button2:hover{
   background-color: #0279cc
@@ -252,4 +259,26 @@ footer * {
   bottom: 0;
   right: 0;
   text-decoration: none;
+}
+
+.fab {
+  display: inline;
+  position: absolute;
+  color: white;
+  background: rgba(0, 0, 0, 0.0);
+  left: 65px;
+}
+
+.fa-facebook {
+  top: 22px;
+  left: 70px;
+}
+
+.fa-twitter {
+  top: 70px;
+}
+
+.social {
+  border: none;
+  background: rgba(0, 0, 0, 0.0);
 }
