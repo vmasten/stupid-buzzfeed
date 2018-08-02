@@ -81,9 +81,9 @@ function renderStart() {
 }
 
 function renderQuiz() {
-  console.log('we\'re here');
   document.getElementById('startDiv').style.display = 'none';
   var newDiv = document.createElement('div');
+  newDiv.setAttribute('id', 'quizDiv');
 
   if (quiz1.quizItems[quizQuestion].img !== '') {
     var img = document.createElement('img');
@@ -92,10 +92,12 @@ function renderQuiz() {
   }
 
   var createH3 = document.createElement('h3');
+  createH3.setAttribute('class', 'quizQuestion');
   createH3.textContent = quiz1.quizItems[quizQuestion].questionText;
   newDiv.appendChild(createH3);
   for (var j = 0; j < quiz1.quizItems[quizQuestion].options.length; j++) {
     var divEl = document.createElement('p');
+    divEl.setAttribute('class', 'questionOption')
     var inputEl = document.createElement('input');
 
     inputEl.setAttribute('type', 'radio');
@@ -110,7 +112,6 @@ function renderQuiz() {
     divEl.appendChild(inputEl);
     divEl.appendChild(createLabel);
     newDiv.appendChild(divEl);
-    console.log('now we\'re here');
   }
 
 
@@ -124,7 +125,6 @@ function renderQuiz() {
 
   var main = document.getElementById('main');
   main.appendChild(newDiv);
-  console.log('after append to new div');
 
 }
 
