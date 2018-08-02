@@ -3,9 +3,18 @@
 function renderResults() {
   var parsedRecent = JSON.parse(localStorage.recentQuiz);
   var parsedNames = JSON.parse(localStorage.quizNames);
-  console.log(parsedNames);
+  var recentImg = document.createElement('img');
+  recentImg.src = parsedRecent[2];
+  q1Img = document.createElement('img');
+  q1Img.src = 
+  q2Img = document.createElement('img');
+  q2Img.src =
+  q3Img = document.createElement('img');
+  q3Img.src = 
+
   document.getElementById('greetingH2').textContent = 'Here are you results ' + localStorage.getItem('userName') + '!';
   document.getElementById('currentResult').textContent = 'Your result from the ' + parsedRecent[1] + ' quiz was: ' + parsedRecent[0];
+  document.getElementById('asideDivLast').appendChild(recentImg);
 
   if (localStorage.vQuiz) {
     document.getElementById('q1Result').textContent = parsedNames[0] + ' results: ' + localStorage.vQuiz;

@@ -9,16 +9,20 @@ var submitID = 0; // variable that increments after each quiz is taken
 var eventValue;
 var quizNum;
 var quizNames = [];
+var quizReference = [];
 
-var Quiz = function(name, description, quizItems, results) { // object constructor for each Quiz
+var Quiz = function (name, description, quizItems, results, resultImgs, reference) { // object constructor for each Quiz
   this.name = name; // name of quiz
   this.description = description;
   this.score = 0; // user's current score
   this.quizItems = quizItems; // quiz questions
   this.results = results; // results of quiz after score factored in
+  this.resultImgs = resultImgs;
+  this.reference = reference;
 
   quizzes.push(this); // pushes quiz instance into var quizzes
   quizNames.push(this.name);
+  quizReference.push(this.reference);
 };
 
 function QuizItem(questionText, options, answerRanking, img) { // object constructor for each quiz question
@@ -41,7 +45,7 @@ new QuizItem('My dream house...', ['Is gigantic', 'Has a huge yard/is a farm', '
 new QuizItem('Somebody...', ['stop me!', 'once told me the world is gonna roll me', 'told me that you had a boyfriend that looked like a girlfriend that I had in February of last year'], [0, 2, 3], '');
 new QuizItem('What are you doing RIGHT NOW?', ['Taking this stupid quiz', 'Getting annoyed at all these questions', 'Wondering how my life led me to this'], [2, 1, 0], 'imgs/curious.jpg');
 new QuizItem('Anything else we should know?', ['why are you asking me this', 'What is this, a job interview?', 'No, I think you\'ve pretty much covered it.'], [1, 0, 2], '');
-var quiz1 = new Quiz('The Unbearable Lightness of Being', 'Take this quiz to find out your life\'s one true path!', quizItems, ['oh god how did this get here i\'m bad at computers', 'You\'re the one, Neo', 'You\'re a wizard, Harry']);
+var quiz1 = new Quiz('The Unbearable Lightness of Being', 'Take this quiz to find out your life\'s one true path!', quizItems, ['oh god how did this get here i\'m bad at computers', 'You\'re the one, Neo', 'You\'re a wizard, Harry'], ['imgs/oh-god.jpg', 'imgs/neo-the-one.png', 'imgs/hp-sorting-hat.jpg'], 'vQuiz');
 quizItems = []; // resets quizItems for next quiz
 
 // QUIZ TWO
@@ -55,7 +59,7 @@ new QuizItem('Which is your favorite utensil?', ['Fork', 'Knife', 'Spoon'], [1, 
 new QuizItem('Would you rather cook dinner, order delivery, or eat out?', ['Cook at home', 'Order Delivery', 'Dining out'], [3, 1, 2], '');
 new QuizItem('Do you prefer sweet, salty, or spicy?', ['spicy', 'salty', 'sweet'], [3, 2, 1], '');
 new QuizItem('Choose the delicacy you are forced to eat:', ['Surströmming (fermented herring)', 'Balut (boiled developed bird egg)', 'Kiviak (Auk bird stuffed and fermented in seal carcass)'], [2, 1, 3], '');
-var quiz2 = new Quiz('Soul-Food', 'Tell us what food you like and we\'ll tell you who your soulmate is!', quizItems, ['An extraterrestrial being - You\'re just minding your business one night, and suddenly, you\'re basked in an eerie green light and everything becomes silent, except for this humming noise that seems to be coming from inside your skull, growing louder and louder until you can feel it vibrating your eyes out of their sockets. Then it suddenly stops, and you realize you\'re no longer standing on solid earth, but instead, are now shoeless and on some sort of metal platform, warm to the touch. When you look up, your breath catches in your throat. In front of you stands the tallest humanoid you\'ve ever seen, and for some reason, you can\'t quite comprehend its form, but you are utterly drawn to it. This is where you belong. This is where you need to be. This is where your soul has finally met its mate.', 'A mountain - Finding yourself finally at the peak of Mt Rainier, you are overcome with a rush of emotions - joy, accomplishment, relief that you finally made it, and a sense of sadness as you know you must now descend. It is then that you realize that the thing you had always been looking for in all of your relationships in life was that connection to something bigger than yourself, and here it was, staring you in the face. You fall to the snow covered ground and embrace the biggest stone in the area. There is no one else for you. This is where you belong. This is where you need to be. This is where you soul has finally met its mate.', 'A velociraptor - The heat threatens to overwhelm you as you push through yet another cluster of vines and trees, your feet finding yet another puddle of what you hope is only mud. Your breathing is labored as the humidity makes it feel like you\'re underwater. You can\'t stop, not even going to chance it. Got to push on. Pausing for a moment, the crashing behind you grows louder, and you stifle the scream that threatens to escape your throat. You scramble even faster through the tangle, but your foot gets caught in a root, and you come tumbling down into a small stream. All of a sudden you realize that the jungle around you has gone silent, with only the sound of the water running over your feet reaching your ears. That\'s when you see them - two dark eyes staring at you from only a couple of meters away. You try to slide back into a tree as they come forward out of the bush. Their skin is dark and scaly and they stand over 7-feet tall, but it\'s the teeth and the 4-inch long claws that you\'re worried about. Why you ever came to this park, you can\'t even recall now. But all you can see now are those eyes and teeth and claws coming towards you. There is no one else to help you. This is where your soul has finally met its mate.']);
+var quiz2 = new Quiz('Soul-Food', 'Tell us what food you like and we\'ll tell you who your soulmate is!', quizItems, ['An extraterrestrial being - You\'re just minding your business one night, and suddenly, you\'re basked in an eerie green light and everything becomes silent, except for this humming noise that seems to be coming from inside your skull, growing louder and louder until you can feel it vibrating your eyes out of their sockets. Then it suddenly stops, and you realize you\'re no longer standing on solid earth, but instead, are now shoeless and on some sort of metal platform, warm to the touch. When you look up, your breath catches in your throat. In front of you stands the tallest humanoid you\'ve ever seen, and for some reason, you can\'t quite comprehend its form, but you are utterly drawn to it. This is where you belong. This is where you need to be. This is where your soul has finally met its mate.', 'A mountain - Finding yourself finally at the peak of Mt Rainier, you are overcome with a rush of emotions - joy, accomplishment, relief that you finally made it, and a sense of sadness as you know you must now descend. It is then that you realize that the thing you had always been looking for in all of your relationships in life was that connection to something bigger than yourself, and here it was, staring you in the face. You fall to the snow covered ground and embrace the biggest stone in the area. There is no one else for you. This is where you belong. This is where you need to be. This is where you soul has finally met its mate.', 'A velociraptor - The heat threatens to overwhelm you as you push through yet another cluster of vines and trees, your feet finding yet another puddle of what you hope is only mud. Your breathing is labored as the humidity makes it feel like you\'re underwater. You can\'t stop, not even going to chance it. Got to push on. Pausing for a moment, the crashing behind you grows louder, and you stifle the scream that threatens to escape your throat. You scramble even faster through the tangle, but your foot gets caught in a root, and you come tumbling down into a small stream. All of a sudden you realize that the jungle around you has gone silent, with only the sound of the water running over your feet reaching your ears. That\'s when you see them - two dark eyes staring at you from only a couple of meters away. You try to slide back into a tree as they come forward out of the bush. Their skin is dark and scaly and they stand over 7-feet tall, but it\'s the teeth and the 4-inch long claws that you\'re worried about. Why you ever came to this park, you can\'t even recall now. But all you can see now are those eyes and teeth and claws coming towards you. There is no one else to help you. This is where your soul has finally met its mate.'], ['', '', ''], 'cQuiz');
 quizItems = []; // resets quizItems for next quiz
 
 new QuizItem('How much outside space do you have?', ['A little', 'A lot', 'Way to much'], [1, 2, 3], '');
@@ -68,7 +72,7 @@ new QuizItem('Train a whole party of Pokemon, or train one overpowered Pokemon?'
 new QuizItem('What skill would you want to learn?', ['Fishing', 'Hunting', 'Foraging'], [0, 2, 3], '');
 new QuizItem('Which artis do you appreciate most?', ['Salvador Dali', 'Vincent van Gogh', 'Bob Ross'], [1, 2, 3], '');
 new QuizItem('Are you a morning person?', ['Only because I never went to sleep last night', 'Yes', 'No'], [0, 1, 3], '');
-var quiz3 = new Quiz('Pet-Selector', 'Take this quiz and we we\'ll tell you which pet is perfect for you!', quizItems, ['Platypus', 'Liger', 'Elephant']);
+var quiz3 = new Quiz('Pet-Selector', 'Take this quiz and we\'ll tell you which pet is perfect for you!', quizItems, ['Platypus', 'Liger', 'Elephant'], ['imgs/Platypus.jpg', 'imgs/Liger.jpg', 'imgs/Elephant.jpg'], 'kQuiz');
 quizItems = [];
 
 var startButton = document.createElement('button'); // button that starts the quiz when clicked
@@ -98,7 +102,7 @@ function renderStart() { // function that starts the quiz flow
     var quizText = document.createElement('p'); // create a p element for text under picture in quiz card
     quizText.textContent = 'Click Here!'; // text content for p
     quizText.setAttribute('value', quizzes[i].name);
-    quizText.addEventListener('click', function(event) {
+    quizText.addEventListener('click', function (event) {
       eventValue = event.target.getAttribute('value');
       console.log(eventValue, 'eventvalue');
       renderQuiz(eventValue);
@@ -108,7 +112,7 @@ function renderStart() { // function that starts the quiz flow
 }
 // event.target.value()
 function renderQuiz(eventValue) { // function to render the quiz questions after selection
-  for (var i =0; i < quizzes.length; i++) {
+  for (var i = 0; i < quizzes.length; i++) {
     if (quizzes[i].name === eventValue) {
       quizNum = quizzes[i];
       console.log('quznumb', quizNum);
@@ -154,7 +158,7 @@ function renderQuiz(eventValue) { // function to render the quiz questions after
   submitEl.setAttribute('id', 'question' + submitID); // set attribute of input id=question#
 
   newDiv.appendChild(submitEl); // append input to quiz div
-  submitEl.addEventListener('click', function(event) {
+  submitEl.addEventListener('click', function (event) {
     console.log(eventValue, 'eventvalue');
     nextQuestion(quizNum);
   }); // add an eventListener for a click on the submit, runs nextQuestion() function
@@ -185,16 +189,19 @@ function nextQuestion(quizNum) { // function to display next question when submi
 
 function quizResult(quizNum) { // function to display the quiz results
   if (quizNum.score < 10) { // if the user's score is less than 10
-    localStorage.setItem(quizNum.name, quizNum.results[0]); // add to localStorage the result from the quiz object's results
-    localStorage.setItem('recentQuiz', JSON.stringify([quizNum.results[0], quizNum.name])); // add to local storage that this result is for recent quiz
+    localStorage.setItem(quizNum.name, JSON.stringify([quizNum.results[0], quizNum.resultImgs[0]])); // add to localStorage the result from the quiz object's results
+    localStorage.setItem('recentQuiz', JSON.stringify([quizNum.results[0], quizNum.name, quizNum.resultImgs[0]])); // add to local storage that this result is for recent quiz
+    localStorage.setItem(quizNum.name + 'resultImg', quizNum.resultImgs[0]);
   }
   else if (quizNum.score < 20) { // if the user's score is 10-19
-    localStorage.setItem(quizNum.name, quizNum.results[1]); // add to localStorage the result from the quiz object's results
-    localStorage.setItem('recentQuiz', JSON.stringify([quizNum.results[1], quizNum.name])); // add to local storage that this result is for recent quiz
+    localStorage.setItem(quizNum.name, JSON.stringify([quizNum.results[1], quizNum.resultImgs[1]])); // add to localStorage the result from the quiz object's results
+    localStorage.setItem('recentQuiz', JSON.stringify([quizNum.results[1], quizNum.name, quizNum.resultImgs[1]])); // add to local storage that this result is for recent quiz
+    localStorage.setItem(quizNum.name + 'resultImg', quizNum.resultImgs[1]);
   }
   else { // if the user's scrore is 20+
-    localStorage.setItem(quizNum.name, quizNum.results[2]); // add to localStorage the result from the quiz object's results
-    localStorage.setItem('recentQuiz', JSON.stringify([quizNum.results[2], quizNum.name])); // add to local storage that this result is for recent quiz
+    localStorage.setItem(quizNum.name, JSON.stringify([quizNum.results[2], quizNum.resultImgs[2]])); // add to localStorage the result from the quiz object's results
+    localStorage.setItem('recentQuiz', JSON.stringify([quizNum.results[2], quizNum.name, quizNum.resultImgs[2]])); // add to local storage that this result is for recent quiz
+    localStorage.setItem(quizNum.name + 'resultImg', quizNum.resultImgs[2]);
   }
   location.href = 'results.html';
 }

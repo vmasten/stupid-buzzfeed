@@ -33,6 +33,10 @@ h2 {
   font-size: 24pt;
 }
 
+h3 {
+font-size: 20pt;
+}
+
 h3, p {
   background-color: white;
 }
@@ -77,8 +81,18 @@ main {
   margin-top: 110px;
 }
 
+main > h1 {
+  float: none;
+  background-color: inherit;
+}
+
 aside {
   float: right;
+  height: 200px;
+}
+
+aside > img {
+  height: 200px;
 }
 
 footer {
@@ -96,9 +110,22 @@ footer {
 .aboutUsSection {
   background-color: orange;
   border: solid 2px black;
-  margin-bottom: 2%;
-  width: 80%;
+  margin-top: 2%;
+  margin-left: 5%;
+  width: 60%;
   padding-left: 2%;
+  height: 204px;
+}
+
+.aboutUsDiv {
+  margin-top: 20px;
+  background-color: inherit;
+  height: 100px;
+}
+
+.aboutUsDiv > h2, .aboutUsDiv > p {
+  margin-left: 0px;
+  background-color: inherit;
 }
 
 .float-header {
@@ -155,18 +182,20 @@ footer {
 
 .quiz-card {
   width: 620px;
-  height: 300px;
+  height: 315px;
   /* outline: 5px dashed greenyellow; */
-  padding-top: 20px;
+  padding-top: 15px;
   background-color: rgb(255, 255, 255);
   border: solid 1px rgb(244, 244, 244);
   box-shadow:  0 1px 0 hsla(0,3%,67%,.1), 0 2px 1px hsla(0,1%,71%,.1);
-  margin: 7px 0 15px 0;
+  margin-bottom: 15px;
   box-sizing: border-box;
 }
 
 .quiz-card > img {
   width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .quiz-card > h3, .quiz-card > p {
