@@ -28,9 +28,11 @@ h1 {
 
 h2 {
   /* outline: dashed 5px magenta; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 0 15px;
-  font-weight: 900;
-  font-size: 24pt;
+  font-weight: 800;
+  font-size: 30pt;
+  letter-spacing: -2px;
 }
 
 h3, p {
@@ -65,9 +67,11 @@ nav * input {
 
 header * img {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 4px;
+  right: 10px;
   display: inline-block;
+  width: 70px;
+  height: 35px;
 }
 
 header:after {
@@ -175,6 +179,8 @@ footer {
 
 .copyright {
   background-color: rgb(244, 244, 244);
+  color: rgba(113, 113, 113, 0.673);
+  text-decoration: none !important;
 }
 
 #quizDiv {
@@ -200,4 +206,12 @@ footer {
 
 [id^="question"] {
   margin-bottom: 40px;
+}
+
+footer * {
+  position: sticky;
+  display: inline;
+  bottom: 0;
+  right: 0;
+  text-decoration: none;
 }
