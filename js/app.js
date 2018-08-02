@@ -26,7 +26,7 @@ var Quiz = function (name, description, quizItems, results, resultImgs, referenc
   quizReference.push(this.reference);
 };
 
-function QuizItem(questionText, options, answerRanking, img) { // object constructor for each quiz question
+function QuizItem(questionText, options, answerRanking) { // object constructor for each quiz question
   this.questionText = questionText; // question text
   this.options = options; // answer options
   this.answerRanking = answerRanking; // assigned score for each answer
@@ -135,11 +135,13 @@ function renderQuiz(eventValue) { // function to render the quiz questions after
     var inputEl = document.createElement('input'); // and create an input element
 
     inputEl.setAttribute('type', 'radio'); // set attribute of input type=radio
-    inputEl.setAttribute('id', 'button' + j); // set attribute of input id=button
+    inputEl.setAttribute('class', 'button'); // set attribute of input id=button
     inputEl.setAttribute('value', quizNum.quizItems[quizQuestion].answerRanking[j]); // set attribute of input value=answer rank
     inputEl.setAttribute('name', quizNum.quizItems[quizQuestion].questionText); // set attribute of input name=questionText
     inputEl.onclick = function(event) { //Clicking the radio button calls the next question
       nextQuestion(quizNum);
+
+
     };
 
     var createLabel = document.createElement('label'); // create a label element
@@ -157,6 +159,12 @@ function renderQuiz(eventValue) { // function to render the quiz questions after
 
 
 function nextQuestion(quizNum) { // function to display next question when submit button clicked
+  //disable previous radio buttons
+  var disableButtons = document.getElementsByClassName('button');
+  for (var k = 0; k < disableButtons.length; k++) {
+    disableButtons[k].disabled=true;
+  }
+
   submitID++; // next submitId for next question
   quizQuestion++; // next quiz question for next selections
   if (quizQuestion < quizNum.quizItems.length) // if the quiz question number is less than number of questions
