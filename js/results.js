@@ -1,36 +1,36 @@
 'use strict';
 
 function renderResults() {
-  document.getElementById('greetingH2').textContent = 'Here are you results ' + localStorage.getItem(username) + '!';
-  document.getElementById('currentResult').textContent = 'Your result from the ' + 'quiz name' + ' quiz was: ' + 'result';
+  var parsedRecent = JSON.parse(localStorage.recentQuiz);
+  var parsedNames = JSON.parse(localStorage.quizNames);
+  console.log(parsedNames);
+  document.getElementById('greetingH2').textContent = 'Here are you results ' + localStorage.getItem('userName') + '!';
+  document.getElementById('currentResult').textContent = 'Your result from the ' + parsedRecent[1] + ' quiz was: ' + parsedRecent[0];
 
-  if (localStorage.quiz1.name) {
-    document.getElementById('q1Results').textContent = quiz1.name + ' results: ' + localStorage.getItem(quiz1.name);
+  if (localStorage.vQuiz) {
+    document.getElementById('q1Result').textContent = parsedNames[0] + ' results: ' + localStorage.vQuiz;
   }
 
-  if (localStorage.quiz2.name) {
-    document.getElementById('q2Results').textContent = quiz2.name + ' results: ' + localStorage.getItem(quiz2.name);
+  if (localStorage.cQuiz) {
+    document.getElementById('q2Result').textContent = parsedNames[1] + ' results: ' + localStorage.cQuiz;
   }
 
-  if (localStorage.quiz3.name) {
-    document.getElementById('q3Results').textContent = quiz3.name + ' results: ' + localStorage.getItem(quiz3.name);
+  if (localStorage.kQuiz) {
+    document.getElementById('q3Result').textContent = parsedNames[2] + ' results: ' + localStorage.kQuiz;
   }
 
-  if (quiz1.name === localStorage.recentQuiz[1]) {
-    document.getElementById('q1Results').textContent = '';
+  if (parsedNames[0] === parsedRecent[1]) {
+    document.getElementById('q1Result').textContent = '';
   }
 
-  if (quiz2.name === localStorage.recentQuiz[1]) {
-    document.getElementById('q2Results').textContent = '';
+  if (parsedNames[1] === parsedRecent[1]) {
+    document.getElementById('q2Result').textContent = '';
   }
 
-  if (quiz3.name === localStorage.recentQuiz[1]) {
-    document.getElementById('q3Results').textContent = '';
+  if (parsedNames[2] === parsedRecent[1]) {
+    document.getElementById('q3Result').textContent = '';
   }
 }
-
-
-
 
 
 renderResults();
