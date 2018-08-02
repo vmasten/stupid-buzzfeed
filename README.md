@@ -1,6 +1,6 @@
 # Stupid BuzzFeed parody project
 
-## Contributers
+## Contributors
 * Kris Esvelt
 * Vince Masten
 * Candice Thomas
