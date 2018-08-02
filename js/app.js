@@ -30,55 +30,53 @@ function QuizItem(questionText, options, answerRanking, img) { // object constru
   this.questionText = questionText; // question text
   this.options = options; // answer options
   this.answerRanking = answerRanking; // assigned score for each answer
-  this.img = img; // img path (if available)
 
   quizItems.push(this); // pushes all questions into var quizItems
 }
 
 function makeQuizzes() {
   // QUIZ ONE
-  new QuizItem('What is your biggest fear?', ['Spiders', 'Heights', 'Death'], [4, 0, 2], '');
-  new QuizItem('Who is your idol?', ['Barack Obama', 'Dwayne Johnson', 'Taylor Swift'], [2, 3, 0], '');
-  new QuizItem('Where would you go on your dream vacation?', ['Tahiti', 'Paris', 'Tokyo'], [0, 1, 2], '');
-  new QuizItem('What is your favorite genre of video games?', ['Shooter', 'RPG', 'Platformer', 'video games are dumb'], [3, 2, 1, -1], '');
-  new QuizItem('If you were stuck on a desert island, what would be the one piece of media that gets you through it?', ['The movie Fight Club', 'The book Jurassic Park', 'The game The Witcher 3'], [1, 2, 3], 'imgs/island.jpg');
-  new QuizItem('Which do you prefer?', ['A small show with a loud band so I can run around in the pit', 'A large arena with a good sound system so I can take the spectacle in', 'Excuse me? All I need is a nice glass of wine and a quiet evening at home'], [4, 2, -1], '');
-  new QuizItem('My dream house...', ['Is gigantic', 'Has a huge yard/is a farm', 'I don\'t really think about it'], [2, 4, 0], '');
-  new QuizItem('Somebody...', ['stop me!', 'once told me the world is gonna roll me', 'told me that you had a boyfriend that looked like a girlfriend that I had in February of last year'], [0, 2, 3], '');
-  new QuizItem('What are you doing RIGHT NOW?', ['Taking this stupid quiz', 'Getting annoyed at all these questions', 'Wondering how my life led me to this'], [2, 1, 0], 'imgs/curious.jpg');
-  new QuizItem('Anything else we should know?', ['why are you asking me this', 'What is this, a job interview?', 'No, I think you\'ve pretty much covered it.'], [1, 0, 2], '');
+  new QuizItem('What is your biggest fear?', ['Spiders', 'Heights', 'Death'], [4, 0, 2]);
+  new QuizItem('Who is your idol?', ['Barack Obama', 'Dwayne Johnson', 'Taylor Swift'], [2, 3, 0]);
+  new QuizItem('Where would you go on your dream vacation?', ['Tahiti', 'Paris', 'Tokyo'], [0, 1, 2]);
+  new QuizItem('What is your favorite genre of video games?', ['Shooter', 'RPG', 'Platformer', 'video games are dumb'], [3, 2, 1, -1]);
+  new QuizItem('If you were stuck on a desert island, what would be the one piece of media that gets you through it?', ['The movie Fight Club', 'The book Jurassic Park', 'The game The Witcher 3'], [1, 2, 3]);
+  new QuizItem('Which do you prefer?', ['A small show with a loud band so I can run around in the pit', 'A large arena with a good sound system so I can take the spectacle in', 'Excuse me? All I need is a nice glass of wine and a quiet evening at home'], [4, 2, -1]);
+  new QuizItem('My dream house...', ['Is gigantic', 'Has a huge yard/is a farm', 'I don\'t really think about it'], [2, 4, 0]);
+  new QuizItem('Somebody...', ['stop me!', 'once told me the world is gonna roll me', 'told me that you had a boyfriend that looked like a girlfriend that I had in February of last year'], [0, 2, 3]);
+  new QuizItem('What are you doing RIGHT NOW?', ['Taking this stupid quiz', 'Getting annoyed at all these questions', 'Wondering how my life led me to this'], [2, 1, 0]);
+  new QuizItem('Anything else we should know?', ['why are you asking me this', 'What is this, a job interview?', 'No, I think you\'ve pretty much covered it.'], [1, 0, 2]);
   var quiz1 = new Quiz('The Unbearable Lightness of Being', 'Take this quiz to find out your life\'s one true path!', quizItems, ['oh god how did this get here i\'m bad at computers', 'You\'re the one, Neo', 'You\'re a wizard, Harry'], ['imgs/oh-god.jpg', 'imgs/neo-the-one.png', 'imgs/hp-sorting-hat.jpg'], 'vQuiz');
   quizItems = []; // resets quizItems for next quiz
 
   // QUIZ TWO
-  new QuizItem('What dish sounds most appealing to you on a cold winter evening?', ['Stew', 'Raw onions', 'Ice Cream'], [3, 1, 2], '');
-  new QuizItem('When ordering food, what\'s your response to "how spicy?"', ['No spice, please', '2 chilis', 'Bring on the ghost peppers!'], [1, 2, 3], '');
-  new QuizItem('Fruits, vegetables, or meat?', ['Veggies', 'Fruits', 'I am a true carnivore, so pass the meat!'], [2, 1, 3], '');
-  new QuizItem('What condiment is best; ranch dressing or ketchup?', ['Ranch Dressing', 'Ketchup/Catsup', 'neither, those are disgusting'], [1, 2, 3], '');
-  new QuizItem('What tops your ice cream sundae?', ['Whipped cream', 'Chocolate syrup', 'Just one cherry'], [3, 2, 1], '');
-  new QuizItem('Tacos, burgers, or pizza?', ['Tacos', 'Burgers', 'Pizza'], [3, 1, 2], '');
-  new QuizItem('Which is your favorite utensil?', ['Fork', 'Knife', 'Spoon'], [1, 2, 3], '');
-  new QuizItem('Would you rather cook dinner, order delivery, or eat out?', ['Cook at home', 'Order Delivery', 'Dining out'], [3, 1, 2], '');
-  new QuizItem('Do you prefer sweet, salty, or spicy?', ['spicy', 'salty', 'sweet'], [3, 2, 1], '');
-  new QuizItem('Choose the delicacy you are forced to eat:', ['Surströmming (fermented herring)', 'Balut (boiled developed bird egg)', 'Kiviak (Auk bird stuffed and fermented in seal carcass)'], [2, 1, 3], '');
+  new QuizItem('What dish sounds most appealing to you on a cold winter evening?', ['Stew', 'Raw onions', 'Ice Cream'], [3, 1, 2]);
+  new QuizItem('When ordering food, what\'s your response to "how spicy?"', ['No spice, please', '2 chilis', 'Bring on the ghost peppers!'], [1, 2, 3]);
+  new QuizItem('Fruits, vegetables, or meat?', ['Veggies', 'Fruits', 'I am a true carnivore, so pass the meat!'], [2, 1, 3]);
+  new QuizItem('What condiment is best; ranch dressing or ketchup?', ['Ranch Dressing', 'Ketchup/Catsup', 'neither, those are disgusting'], [1, 2, 3]);
+  new QuizItem('What tops your ice cream sundae?', ['Whipped cream', 'Chocolate syrup', 'Just one cherry'], [3, 2, 1]);
+  new QuizItem('Tacos, burgers, or pizza?', ['Tacos', 'Burgers', 'Pizza'], [3, 1, 2]);
+  new QuizItem('Which is your favorite utensil?', ['Fork', 'Knife', 'Spoon'], [1, 2, 3]);
+  new QuizItem('Would you rather cook dinner, order delivery, or eat out?', ['Cook at home', 'Order Delivery', 'Dining out'], [3, 1, 2]);
+  new QuizItem('Do you prefer sweet, salty, or spicy?', ['spicy', 'salty', 'sweet'], [3, 2, 1]);
+  new QuizItem('Choose the delicacy you are forced to eat:', ['Surströmming (fermented herring)', 'Balut (boiled developed bird egg)', 'Kiviak (Auk bird stuffed and fermented in seal carcass)'], [2, 1, 3]);
   var quiz2 = new Quiz('Soul-Food', 'Tell us what food you like and we\'ll tell you who your soulmate is!', quizItems, ['An extraterrestrial being - You\'re just minding your business one night, and suddenly, you\'re basked in an eerie green light and everything becomes silent, except for this humming noise that seems to be coming from inside your skull, growing louder and louder until you can feel it vibrating your eyes out of their sockets. Then it suddenly stops, and you realize you\'re no longer standing on solid earth, but instead, are now shoeless and on some sort of metal platform, warm to the touch. When you look up, your breath catches in your throat. In front of you stands the tallest humanoid you\'ve ever seen, and for some reason, you can\'t quite comprehend its form, but you are utterly drawn to it. This is where you belong. This is where you need to be. This is where your soul has finally met its mate.', 'A mountain - Finding yourself finally at the peak of Mt Rainier, you are overcome with a rush of emotions - joy, accomplishment, relief that you finally made it, and a sense of sadness as you know you must now descend. It is then that you realize that the thing you had always been looking for in all of your relationships in life was that connection to something bigger than yourself, and here it was, staring you in the face. You fall to the snow covered ground and embrace the biggest stone in the area. There is no one else for you. This is where you belong. This is where you need to be. This is where you soul has finally met its mate.', 'A velociraptor - The heat threatens to overwhelm you as you push through yet another cluster of vines and trees, your feet finding yet another puddle of what you hope is only mud. Your breathing is labored as the humidity makes it feel like you\'re underwater. You can\'t stop, not even going to chance it. Got to push on. Pausing for a moment, the crashing behind you grows louder, and you stifle the scream that threatens to escape your throat. You scramble even faster through the tangle, but your foot gets caught in a root, and you come tumbling down into a small stream. All of a sudden you realize that the jungle around you has gone silent, with only the sound of the water running over your feet reaching your ears. That\'s when you see them - two dark eyes staring at you from only a couple of meters away. You try to slide back into a tree as they come forward out of the bush. Their skin is dark and scaly and they stand over 7-feet tall, but it\'s the teeth and the 4-inch long claws that you\'re worried about. Why you ever came to this park, you can\'t even recall now. But all you can see now are those eyes and teeth and claws coming towards you. There is no one else to help you. This is where your soul has finally met its mate.'], ['imgs/cQuizLow.jpg', 'imgs/cQuizMedium.jpg', 'imgs/cQuizHigh.jpg'], 'cQuiz');
   quizItems = []; // resets quizItems for next quiz
 
-  new QuizItem('How much outside space do you have?', ['A little', 'A lot', 'Way to much'], [1, 2, 3], '');
-  new QuizItem('What is your Ideal enviroment?', ['PNW', 'An Island', 'The Desert'], [0, 1, 3], '');
-  new QuizItem('What would you prefer to eat?', ['Shrimp', 'Steak', 'Salad'], [0, 2, 3], '');
-  new QuizItem('What kind of move would you watch?', ['Romance', 'Action', 'Documentary'], [1, 2, 3], '');
-  new QuizItem('What is your form of transportation?', ['Public Transportation', 'Car/Truck', 'Walk/Bike'], [0, 1, 3], '');
-  new QuizItem('What is your choice of spirits?', ['Whiskey', 'Tequila', 'Gin'], [0, 2, 3], '');
-  new QuizItem('Train a whole party of Pokemon, or train one overpowered Pokemon?', ['What?', 'A Whole Party', 'One Pokemon'], [0, 1, 3], '');
-  new QuizItem('What skill would you want to learn?', ['Fishing', 'Hunting', 'Foraging'], [0, 2, 3], '');
-  new QuizItem('Which artis do you appreciate most?', ['Salvador Dali', 'Vincent van Gogh', 'Bob Ross'], [1, 2, 3], '');
-  new QuizItem('Are you a morning person?', ['Only because I never went to sleep last night', 'Yes', 'No'], [0, 1, 3], '');
+  new QuizItem('How much outside space do you have?', ['A little', 'A lot', 'Way to much'], [1, 2, 3]);
+  new QuizItem('What is your Ideal enviroment?', ['PNW', 'An Island', 'The Desert'], [0, 1, 3]);
+  new QuizItem('What would you prefer to eat?', ['Shrimp', 'Steak', 'Salad'], [0, 2, 3]);
+  new QuizItem('What kind of move would you watch?', ['Romance', 'Action', 'Documentary'], [1, 2, 3]);
+  new QuizItem('What is your form of transportation?', ['Public Transportation', 'Car/Truck', 'Walk/Bike'], [0, 1, 3]);
+  new QuizItem('What is your choice of spirits?', ['Whiskey', 'Tequila', 'Gin'], [0, 2, 3]);
+  new QuizItem('Train a whole party of Pokemon, or train one overpowered Pokemon?', ['What?', 'A Whole Party', 'One Pokemon'], [0, 1, 3]);
+  new QuizItem('What skill would you want to learn?', ['Fishing', 'Hunting', 'Foraging'], [0, 2, 3]);
+  new QuizItem('Which artis do you appreciate most?', ['Salvador Dali', 'Vincent van Gogh', 'Bob Ross'], [1, 2, 3]);
+  new QuizItem('Are you a morning person?', ['Only because I never went to sleep last night', 'Yes', 'No'], [0, 1, 3]);
   var quiz3 = new Quiz('Pet-Selector', 'Take this quiz and we\'ll tell you which pet is perfect for you!', quizItems, ['Platypus', 'Liger', 'Elephant'], ['imgs/Platypus.jpg', 'imgs/Liger.jpg', 'imgs/Elephant.jpg'], 'kQuiz');
   quizItems = [];
 }
 
-var startButton = document.createElement('button'); // button that starts the quiz when clicked
 function renderStart() { // function that starts the quiz flow
 
   localStorage.setItem('quizNames', JSON.stringify(quizNames));
@@ -126,15 +124,6 @@ function renderQuiz(eventValue) { // function to render the quiz questions after
   document.getElementById('startDiv').style.display = 'none'; // finding div that will be under the quiz
   var newDiv = document.createElement('div'); // creating a new div that will hold the quiz questions
   newDiv.setAttribute('class', 'quiz-card'); //sets a class to the element for styling
-
-
-
-  if (quizNum.quizItems[quizQuestion].img !== '') { // if there is an img for the quiz question
-    var img = document.createElement('img'); // create an img element
-    img.src = quizNum.quizItems[quizQuestion].img; // set element to be the img for the question
-    newDiv.appendChild(img); // append img element to the newDiv to hold the quiz questions
-
-  }
 
   var createH3 = document.createElement('h3'); // creates an h3 element
   createH3.setAttribute('class', 'quizQuestion'); //sets a class to the element for styling
