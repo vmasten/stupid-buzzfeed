@@ -37,10 +37,6 @@ h3, p {
   background-color: white;
 }
 
-.float-header {
-  position: relative;
-  background-color: white;
-}
 
 nav * {
   background-color: white;
@@ -85,6 +81,13 @@ aside {
   float: right;
 }
 
+footer {
+  text-align: right;
+  padding-top: 45px;
+  background: rgb(244, 244, 244);
+  margin-right: 25px;
+}
+
 /* This class holds the quiz section */
 /* #startDiv {
   display: none;
@@ -96,6 +99,11 @@ aside {
   margin-bottom: 2%;
   width: 80%;
   padding-left: 2%;
+}
+
+.float-header {
+  position: relative;
+  background-color: white;
 }
 
 .quizDiv {
@@ -159,27 +167,17 @@ aside {
 
 .quiz-card > img {
   width: 100%;
-  margin-top: -20px;
 }
 
 .quiz-card > h3, .quiz-card > p {
   margin-left: 20px;
 }
 
-footer {
-  text-align: right;
-  padding-top: 45px;
-  background: rgb(244, 244, 244);
-  margin-right: 25px;
-}
 
 .copyright {
   background-color: rgb(244, 244, 244);
 }
 
-#quizDiv {
-  background-color: rgb(244, 244, 244);
-}
 
 .quizQuestion {
   display: table;
@@ -195,6 +193,10 @@ footer {
 }
 
 .input {
+  background-color: rgb(244, 244, 244);
+}
+
+#quizDiv {
   background-color: rgb(244, 244, 244);
 }
 
