@@ -117,6 +117,7 @@ p {
 
 .resultAside {
   margin-right: 2%;
+  background-color: transparent;
 }
 
 .resultAside > img {
@@ -208,7 +209,7 @@ p {
 
 .quiz-card {
   width: 620px;
-  height: 300px;
+  height: 315px;
   padding-top: 20px;
   background-color: rgb(255, 255, 255);
   border: solid 1px rgb(244, 244, 244);
@@ -221,9 +222,15 @@ p {
   width: 100%;
   margin-top: 10px;
   margin-bottom: 10px;
+  height: 200px;
 }
 
-.quiz-card > h3, .quiz-card > p {
+.quiz-card > h3 {
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+.quiz-card > p {
   margin-left: 20px;
 }
 
@@ -251,12 +258,18 @@ p {
 
 .resultsDiv {
   height: 250px;
+  background-color: white;
+  /* margin-top: 15px; */
+  width: 960px;
+  margin: auto;
+  margin-top: 15px;
 }
 
 .resultsDiv > p {
   padding-top: 100px;
-  width: 70%;
+  width: 55%;
   margin-left: 2%;
+  height: 150px;
 }
 
 #lastResultDiv {
@@ -268,7 +281,8 @@ p {
 }
 
 #q2Result {
-  padding-top: 40px;
+  padding-top: 5px;
+  overflow: scroll;
 }
 
 #currentResult {
@@ -276,7 +290,7 @@ p {
 }
 
 #greetingH2 {
-  margin-left: 2%;
+  text-align: center;
 }
 
 [id^="question"] {
