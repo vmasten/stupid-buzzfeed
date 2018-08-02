@@ -27,10 +27,11 @@ h1 {
 }
 
 h2 {
-  /* outline: dashed 5px magenta; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 0 15px;
-  font-weight: 900;
-  font-size: 24pt;
+  font-weight: 800;
+  font-size: 30pt;
+  letter-spacing: -2px;
 }
 
 h3 {
@@ -65,9 +66,11 @@ nav * input {
 
 header * img {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 4px;
+  right: 10px;
   display: inline-block;
+  width: 70px;
+  height: 35px;
 }
 
 header:after {
@@ -154,25 +157,20 @@ p {
 }
 
 .content-wrapper {
-  /* outline: 10px dashed magenta; */
   width: 100%;
 }
 
 .header-wrapper {
   width: 964px;
-  /* outline: dashed 5px turquoise; */
   padding: 16px 0px;
   background-color: white;
-  /* background-color: rgb(244, 244, 244); */
   margin-left: auto;
   margin-right: auto;
 }
 
 .column-wrapper {
   width: 964px;
-  /* outline: dashed 5px turquoise; */
   padding: 16px 0px;
-  /* background-color: white; */
   background-color: rgb(244, 244, 244);
   margin-left: auto;
   margin-right: auto;
@@ -188,6 +186,20 @@ p {
   width: 300px;
   display: inline-block;
   margin: 0 10px 0 10px;
+  position: relative;
+  background: white;
+  border-top: 10px solid #f43192;
+  border-radius: 3px;
+}
+
+.columnright > img {
+  width: 300px;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.columnright:last-child {
+  padding-bottom: 20px;
 }
 
 .gutter {
@@ -196,9 +208,8 @@ p {
 
 .quiz-card {
   width: 620px;
-  height: 315px;
-  /* outline: 5px dashed greenyellow; */
-  padding-top: 15px;
+  height: 300px;
+  padding-top: 20px;
   background-color: rgb(255, 255, 255);
   border: solid 1px rgb(244, 244, 244);
   box-shadow:  0 1px 0 hsla(0,3%,67%,.1), 0 2px 1px hsla(0,1%,71%,.1);
@@ -219,6 +230,8 @@ p {
 
 .copyright {
   background-color: rgb(244, 244, 244);
+  color: rgba(113, 113, 113, 0.673);
+  text-decoration: none !important;
 }
 
 .quizQuestion {
@@ -267,8 +280,76 @@ p {
 }
 
 [id^="question"] {
-
   margin-bottom: 40px;
+}
+
+/* Facebook button */
+a.button1 {
+  display:inline-block;
+  padding: 15px 0 12px 18px;
+  border:0.1em solid #FFFFFF;
+  margin:8px 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:500;
+  color:#FFFFFF;
+  text-align:center;
+  transition: all 0.2s;
+  width: 300px;
+  background-color: #3b5998;
+  border-radius: 5px;
+  font-size: 11pt;
+}
+a.button1:hover{
+  background-color:#1d2d50;
+}
+@media all and (max-width:300px){
+  a.button1{
+  display:block;
+  margin:0.4em auto;
+  }
+} 
+/* Twitter button differences from FB*/
+a.button2 {
+  background-color: #55acee;
+  margin-bottom: 10px;
+  margin:0 0.3em 1em 0;
+}
+a.button2:hover{
+  background-color: #0279cc
+}
+
+footer * {
+  position: sticky;
+  display: inline;
+  bottom: 0;
+  right: 0;
+  text-decoration: none;
+}
+
+.fab {
+  display: inline;
+  position: absolute;
+  color: white;
+  background: rgba(0, 0, 0, 0.0);
+  left: 65px;
+}
+
+.fa-facebook {
+  top: 22px;
+  left: 70px;
+}
+
+.fa-twitter {
+  top: 70px;
+}
+
+.social {
+  border: none;
+  background: rgba(0, 0, 0, 0.0);
+
 } */
 
 label {
