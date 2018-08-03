@@ -84,14 +84,15 @@ main {
   margin-top: 110px;
 }
 
-main > h1 {
-  float: none;
-  background-color: inherit;
+main * h1 {
+  background-color: rgba(0, 0, 0, 0.0);
+  margin-left: 45px;
 }
 
 aside {
   float: right;
   height: 200px;
+  background-color: rgba(0, 0, 0, 0.0);
 }
 
 aside > img {
@@ -110,39 +111,41 @@ p {
   background-color: inherit;
 }
 
-/* This class holds the quiz section */
-/* #startDiv {
-  display: none;
-} */
-
 .resultAside {
   margin-right: 2%;
+  background-color: transparent;
 }
 
 .resultAside > img {
   height: 200px;
-  margin-top: 25px;
 }
 
 .aboutUsSection {
-  background-color: orange;
-  border: solid 2px black;
+  background-color: white;
+  border: solid 2px black !important;
   margin-top: 2%;
   margin-left: 5%;
-  width: 60%;
+  width: 96% !important;
   padding-left: 2%;
-  height: 204px;
+}
+
+.aboutUsSection:first-of-type {
+  margin-top: 60px;
+}
+
+.aboutUsSection * img {
+  margin: 20px 20px 0 10px;
 }
 
 .aboutUsDiv {
   margin-top: 20px;
-  background-color: inherit;
+  background-color: rgba(0, 0, 0, 0.0);
   height: 100px;
 }
 
 .aboutUsDiv > h2, .aboutUsDiv > p {
-  margin-left: 0px;
-  background-color: inherit;
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.0);
 }
 
 .float-header {
@@ -208,7 +211,7 @@ p {
 
 .quiz-card {
   width: 620px;
-  height: 300px;
+  height: 315px;
   padding-top: 20px;
   background-color: rgb(255, 255, 255);
   border: solid 1px rgb(244, 244, 244);
@@ -221,9 +224,15 @@ p {
   width: 100%;
   margin-top: 10px;
   margin-bottom: 10px;
+  height: 200px;
 }
 
-.quiz-card > h3, .quiz-card > p {
+.quiz-card > h3 {
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+.quiz-card > p {
   margin-left: 20px;
 }
 
@@ -251,12 +260,18 @@ p {
 
 .resultsDiv {
   height: 250px;
+  background-color: white;
+  /* margin-top: 15px; */
+  width: 960px;
+  margin: auto;
+  margin-top: 15px;
 }
 
 .resultsDiv > p {
   padding-top: 100px;
-  width: 70%;
+  width: 55%;
   margin-left: 2%;
+  height: 150px;
 }
 
 #lastResultDiv {
@@ -268,7 +283,8 @@ p {
 }
 
 #q2Result {
-  padding-top: 40px;
+  padding-top: 5px;
+  overflow: scroll;
 }
 
 #currentResult {
@@ -276,8 +292,24 @@ p {
 }
 
 #greetingH2 {
-  margin-left: 2%;
+  text-align: center;
 }
+
+#resultsDiv2 {
+  padding-top: 25px;
+}
+
+#asideDiv1 {
+  margin-top: 25px;
+  }
+
+#asideDiv2 {
+margin: 0px;
+}
+
+#asideDiv3 {
+  margin-top: 25px;
+  }
 
 [id^="question"] {
   margin-bottom: 40px;
@@ -350,8 +382,13 @@ footer * {
   border: none;
   background: rgba(0, 0, 0, 0.0);
 
-} */
+}
 
 label {
+  background-color: white;
+}
+
+.candice {
+  padding-right: 20px;
   background-color: white;
 }
