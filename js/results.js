@@ -21,7 +21,6 @@ function renderResults() {
     document.getElementById('asideDivLast').appendChild(recentImg);
   } else {
     document.getElementById('lastResultDiv').style.display = 'none';
-
   }
 
   if (localStorage.vQuiz) {
