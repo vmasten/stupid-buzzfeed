@@ -84,14 +84,15 @@ main {
   margin-top: 110px;
 }
 
-main > h1 {
-  float: none;
-  background-color: inherit;
+main * h1 {
+  background-color: rgba(0, 0, 0, 0.0);
+  margin-left: 45px;
 }
 
 aside {
   float: right;
   height: 200px;
+  background-color: rgba(0, 0, 0, 0.0);
 }
 
 aside > img {
@@ -110,11 +111,6 @@ p {
   background-color: inherit;
 }
 
-/* This class holds the quiz section */
-/* #startDiv {
-  display: none;
-} */
-
 .resultAside {
   margin-right: 2%;
 }
@@ -125,24 +121,31 @@ p {
 }
 
 .aboutUsSection {
-  background-color: orange;
-  border: solid 2px black;
+  background-color: white;
+  border: solid 2px black !important;
   margin-top: 2%;
   margin-left: 5%;
-  width: 60%;
+  width: 96% !important;
   padding-left: 2%;
-  height: 204px;
+}
+
+.aboutUsSection:first-of-type {
+  margin-top: 60px;
+}
+
+.aboutUsSection * img {
+  margin: 20px 20px 0 10px;
 }
 
 .aboutUsDiv {
   margin-top: 20px;
-  background-color: inherit;
+  background-color: rgba(0, 0, 0, 0.0);
   height: 100px;
 }
 
 .aboutUsDiv > h2, .aboutUsDiv > p {
-  margin-left: 0px;
-  background-color: inherit;
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.0);
 }
 
 .float-header {
@@ -353,5 +356,10 @@ footer * {
 }
 
 label {
+  background-color: white;
+}
+
+.candice {
+  padding-right: 20px;
   background-color: white;
 }
