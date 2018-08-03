@@ -12,7 +12,7 @@ var quizNum;
 var quizNames = [];
 var quizReference = [];
 
-var Quiz = function (name, description, quizItems, results, resultImgs, reference) { // object constructor for each Quiz
+var Quiz = function (name, description, quizItems, results, resultImgs, reference, indexImg) { // object constructor for each Quiz
   this.name = name; // name of quiz
   this.description = description;
   this.score = 0; // user's current score
@@ -20,6 +20,7 @@ var Quiz = function (name, description, quizItems, results, resultImgs, referenc
   this.results = results; // results of quiz after score factored in
   this.resultImgs = resultImgs;
   this.reference = reference;
+  this.indexImg = indexImg;
 
   quizzes.push(this); // pushes quiz instance into var quizzes
   quizNames.push(this.name);
@@ -89,10 +90,6 @@ function renderStart() { // function that starts the quiz flow
     localStorage.setItem('userName', userNameInput); // saving user name into localStorage
   }
 
-  if (localStorage.quizzesPlayedArray) { // if there is data in localStorage
-    quizzesPlayed = JSON.parse(localStorage.getItem('quizzesPlayedArray')); // parse it into quizzedPlayedArray for results to feed off of
-  }
-
   for (var i = 0; i < quizzes.length; i++) { // loop to create html elements for the quizzes on index.html
     var qh3 = document.createElement('h3'); // creating h3 element
     qh3.textContent = quizzes[i].name; // h3 w/quiz name
@@ -101,7 +98,7 @@ function renderStart() { // function that starts the quiz flow
     qDisc.textContent = quizzes[i].description;
     quizId[i].appendChild(qDisc);
     var qPic = document.createElement('img'); // qPic = img element
-    qPic.src = 'http://via.placeholder.com/300x100'; // img placeholder for the quiz
+    qPic.src = quizzes[i].indexImg; // img placeholder for the quiz
     quizId[i].appendChild(qPic); // appending img element to the identified div for quiz
     var quizText = document.createElement('p'); // create a p element for text under picture in quiz card
     quizText.style.cursor = 'pointer';
