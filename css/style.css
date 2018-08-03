@@ -122,7 +122,6 @@ p {
 
 .resultAside > img {
   height: 200px;
-  margin-top: 25px;
 }
 
 .aboutUsSection {
@@ -292,6 +291,22 @@ p {
 #greetingH2 {
   text-align: center;
 }
+
+#resultsDiv2 {
+  padding-top: 25px;
+}
+
+#asideDiv1 {
+  margin-top: 25px;
+  }
+
+#asideDiv2 {
+margin: 0px;
+}
+
+#asideDiv3 {
+  margin-top: 25px;
+  }
 
 [id^="question"] {
   margin-bottom: 40px;
