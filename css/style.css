@@ -13,6 +13,7 @@ header {
   left: 0;
   background-color: white;
   height: 72px;
+  z-index: 999;
 }
 
 h1 {
@@ -316,11 +317,12 @@ p {
 
 #asideDiv2 {
 margin: 0px;
+margin-right: 2%;
 }
 
 #asideDiv3 {
   margin-top: 25px;
-  }
+}
 
 [id^="question"] {
   margin-bottom: 40px;
@@ -381,12 +383,12 @@ footer * {
 }
 
 .fa-facebook {
-  top: 22px;
+  top: 14px;
   left: 70px;
 }
 
 .fa-twitter {
-  top: 70px;
+  top: 63px;
 }
 
 .social {
