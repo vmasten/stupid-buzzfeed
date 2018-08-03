@@ -6,6 +6,7 @@
   <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="shortcut icon" href="favicon.png">
 </head>
   <body>
     <header>
@@ -26,30 +27,32 @@
           </div>
     </header>
 
-  <main id="main">
+  <main>
     <div id="startDiv">
       <div class="column-wrapper">
         <h2>Quizzes</h2>
       </div>
       <div class="content-wrapper">
         <div class="column-wrapper">
-          <section class="columnleft">
+          <div id="main">
+          <section class="columnleft" id="content1">
             <div id="quiz1" class="quiz-card"></div>
             <div id="quiz2" class="quiz-card"></div>
             <div id="quiz3" class="quiz-card"></div>
           </section>
 
-          <section class="columnright social">
+          <section class="columnright social" id="content2">
             <i class="fab fa-facebook"></i><a href="#" class="button1">Like us on FaseBork</a>
             <i class="fab fa-twitter"></i><a href="#" class="button1 button2">Follows us on Tweeter</a>
           </section>
-          <section class="columnright">
+          <section class="columnright" id="content3">
             <img src="imgs/sidebar1.png">
             <img src="imgs/sidebar2.png">
             <img src="imgs/sidebar3.png">
             <img src="imgs/sidebar4.png">
             <img src="imgs/sidebar5.png">
           </section>
+        </div>
         </div>
       </div>
     </div>

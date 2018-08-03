@@ -123,7 +123,9 @@ function renderQuiz(eventValue) { // function to render the quiz questions after
     }
   }
 
-  document.getElementById('startDiv').style.display = 'none'; // finding div that will be under the quiz
+  document.getElementById('content1').style.display = 'none'; // finding div that will be under the quiz
+  document.getElementById('content2').style.display = 'none'; // finding div that will be under the quiz
+  document.getElementById('content3').style.display = 'none'; // finding div that will be under the quiz
   var newDiv = document.createElement('div'); // creating a new div that will hold the quiz questions
   newDiv.setAttribute('class', 'quiz-card'); //sets a class to the element for styling
 
