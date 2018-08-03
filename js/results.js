@@ -27,18 +27,24 @@ function renderResults() {
     q1Img.src = JSON.parse(localStorage.vQuiz)[1];
     document.getElementById('q1Result').textContent = parsedNames[0] + ' results: ' + JSON.parse(localStorage.vQuiz)[0];
     document.getElementById('asideDiv1').appendChild(q1Img);
+  } else {
+    document.getElementById('resultsDiv1').style.display = 'none';
   }
 
   if (localStorage.cQuiz) {
     q2Img.src = JSON.parse(localStorage.cQuiz)[1];
     document.getElementById('q2Result').textContent = parsedNames[1] + ' results: ' + JSON.parse(localStorage.cQuiz)[0];
     document.getElementById('asideDiv2').appendChild(q2Img);
+  } else {
+    document.getElementById('resultsDiv2').style.display = 'none';
   }
 
   if (localStorage.kQuiz) {
     q3Img.src = JSON.parse(localStorage.kQuiz)[1];
     document.getElementById('q3Result').textContent = parsedNames[2] + ' results: ' + JSON.parse(localStorage.kQuiz)[0];
     document.getElementById('asideDiv3').appendChild(q3Img);
+  } else {
+    document.getElementById('resultsDiv3').style.display = 'none';
   }
 
   if (localStorage.recentQuiz && parsedNames[0] === parsedRecent[1]) {

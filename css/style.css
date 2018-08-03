@@ -316,11 +316,12 @@ p {
 
 #asideDiv2 {
 margin: 0px;
+margin-right: 2%;
 }
 
 #asideDiv3 {
   margin-top: 25px;
-  }
+}
 
 [id^="question"] {
   margin-bottom: 40px;
