@@ -220,6 +220,17 @@ p {
   box-sizing: border-box;
 }
 
+#recentquiz {
+  height: auto;
+  width: auto;
+  background: white;
+}
+
+#recentquiz > * {
+  background: white;
+  padding: 0 20px;
+}
+
 .quiz-card > img {
   width: 100%;
   margin-top: 10px;
