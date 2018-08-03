@@ -288,6 +288,7 @@ p {
 
 #lastResultDiv {
   height: 250px;
+  overflow: scroll;
 }
 
 #quizDiv {
