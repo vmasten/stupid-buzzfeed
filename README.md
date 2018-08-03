@@ -8,7 +8,7 @@ CSS
 
 JavaScript
 
-## Contributers
+## Contributors
 
 * Kris Esvelt
 
