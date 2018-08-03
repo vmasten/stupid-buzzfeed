@@ -12,21 +12,21 @@ JavaScript
 
 * Kris Esvelt
 
- * [Github](https://github.com/kris3579)
+   * [Github](https://github.com/kris3579)
 
- * [LinkedIn](https://www.linkedin.com/in/kristianesvelt/)
+   * [LinkedIn](https://www.linkedin.com/in/kristianesvelt/)
 
 * Vince Masten
 
- * [Github](https://github.com/vmasten)
+   * [Github](https://github.com/vmasten)
 
- * [LinkedIn](https://www.linkedin.com/in/vmasten/)
+   * [LinkedIn](https://www.linkedin.com/in/vmasten/)
 
 * Candice Thomas
 
- * [Github](https://github.com/canned-ice)
+   * [Github](https://github.com/canned-ice)
 
- * [LinkedIn](https://www.linkedin.com/in/cndcthms/)
+    * [LinkedIn](https://www.linkedin.com/in/cndcthms/)
 
 ## Purpose
 
