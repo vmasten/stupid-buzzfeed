@@ -35,7 +35,7 @@ function QuizItem(questionText, options, answerRanking) { // object constructor 
 }
 
 function makeQuizzes() {
-  // QUIZ ONE
+  // Vince's quiz
   new QuizItem('What is your biggest fear?', ['Spiders', 'Heights', 'Death'], [4, 0, 2]);
   new QuizItem('Who is your idol?', ['Barack Obama', 'Dwayne Johnson', 'Taylor Swift'], [2, 3, 0]);
   new QuizItem('Where would you go on your dream vacation?', ['Tahiti', 'Paris', 'Tokyo'], [0, 1, 2]);
@@ -49,7 +49,7 @@ function makeQuizzes() {
   var quiz1 = new Quiz('The Unbearable Lightness of Being', 'Take this quiz to find out your life\'s one true path!', quizItems, ['oh god how did this get here i\'m bad at computers', 'You\'re the one, Neo', 'You\'re a wizard, Harry'], ['imgs/oh-god.jpg', 'imgs/neo-the-one.png', 'imgs/hp-sorting-hat.jpg'], 'vQuiz');
   quizItems = []; // resets quizItems for next quiz
 
-  // QUIZ TWO
+  // Candice's quiz
   new QuizItem('What dish sounds most appealing to you on a cold winter evening?', ['Stew', 'Raw onions', 'Ice Cream'], [3, 1, 2]);
   new QuizItem('When ordering food, what\'s your response to "how spicy?"', ['No spice, please', '2 chilis', 'Bring on the ghost peppers!'], [1, 2, 3]);
   new QuizItem('Fruits, vegetables, or meat?', ['Veggies', 'Fruits', 'I am a true carnivore, so pass the meat!'], [2, 1, 3]);
@@ -63,6 +63,7 @@ function makeQuizzes() {
   var quiz2 = new Quiz('Soul-Food', 'Tell us what food you like and we\'ll tell you who your soulmate is!', quizItems, ['An extraterrestrial being - You\'re just minding your business one night, and suddenly, you\'re basked in an eerie green light and everything becomes silent, except for this humming noise that seems to be coming from inside your skull, growing louder and louder until you can feel it vibrating your eyes out of their sockets. Then it suddenly stops, and you realize you\'re no longer standing on solid earth, but instead, are now shoeless and on some sort of metal platform, warm to the touch. When you look up, your breath catches in your throat. In front of you stands the tallest humanoid you\'ve ever seen, and for some reason, you can\'t quite comprehend its form, but you are utterly drawn to it. This is where you belong. This is where you need to be. This is where your soul has finally met its mate.', 'A mountain - Finding yourself finally at the peak of Mt Rainier, you are overcome with a rush of emotions - joy, accomplishment, relief that you finally made it, and a sense of sadness as you know you must now descend. It is then that you realize that the thing you had always been looking for in all of your relationships in life was that connection to something bigger than yourself, and here it was, staring you in the face. You fall to the snow covered ground and embrace the biggest stone in the area. There is no one else for you. This is where you belong. This is where you need to be. This is where you soul has finally met its mate.', 'A velociraptor - The heat threatens to overwhelm you as you push through yet another cluster of vines and trees, your feet finding yet another puddle of what you hope is only mud. Your breathing is labored as the humidity makes it feel like you\'re underwater. You can\'t stop, not even going to chance it. Got to push on. Pausing for a moment, the crashing behind you grows louder, and you stifle the scream that threatens to escape your throat. You scramble even faster through the tangle, but your foot gets caught in a root, and you come tumbling down into a small stream. All of a sudden you realize that the jungle around you has gone silent, with only the sound of the water running over your feet reaching your ears. That\'s when you see them - two dark eyes staring at you from only a couple of meters away. You try to slide back into a tree as they come forward out of the bush. Their skin is dark and scaly and they stand over 7-feet tall, but it\'s the teeth and the 4-inch long claws that you\'re worried about. Why you ever came to this park, you can\'t even recall now. But all you can see now are those eyes and teeth and claws coming towards you. There is no one else to help you. This is where your soul has finally met its mate.'], ['imgs/cQuizLow.jpg', 'imgs/cQuizMedium.jpg', 'imgs/cQuizHigh.jpg'], 'cQuiz');
   quizItems = []; // resets quizItems for next quiz
 
+  //Kris's quiz
   new QuizItem('How much outside space do you have?', ['A little', 'A lot', 'Way to much'], [1, 2, 3]);
   new QuizItem('What is your Ideal enviroment?', ['PNW', 'An Island', 'The Desert'], [0, 1, 3]);
   new QuizItem('What would you prefer to eat?', ['Shrimp', 'Steak', 'Salad'], [0, 2, 3]);
@@ -121,17 +122,18 @@ function renderQuiz(eventValue) { // function to render the quiz questions after
     }
   }
 
+  //creates HTML elements needed to render the quiz and adds classes for styling purposes
   document.getElementById('startDiv').style.display = 'none'; // finding div that will be under the quiz
   var newDiv = document.createElement('div'); // creating a new div that will hold the quiz questions
-  newDiv.setAttribute('class', 'quiz-card'); //sets a class to the element for styling
+  newDiv.setAttribute('class', 'quiz-card');
 
   var createH3 = document.createElement('h3'); // creates an h3 element
-  createH3.setAttribute('class', 'quizQuestion'); //sets a class to the element for styling
+  createH3.setAttribute('class', 'quizQuestion');
   createH3.textContent = quizNum.quizItems[quizQuestion].questionText; // sets text content to the question text
   newDiv.appendChild(createH3); // append the h3 element to the newDiv to hold the quiz question itself
   for (var j = 0; j < quizNum.quizItems[quizQuestion].options.length; j++) { // for each of the options on the quiz question
     var divEl = document.createElement('p'); // create a p element
-    divEl.setAttribute('class', 'questionOption'); //Sets a class to the element for styling
+    divEl.setAttribute('class', 'questionOption');
     var inputEl = document.createElement('input'); // and create an input element
 
     inputEl.setAttribute('type', 'radio'); // set attribute of input type=radio
@@ -140,8 +142,6 @@ function renderQuiz(eventValue) { // function to render the quiz questions after
     inputEl.setAttribute('name', quizNum.quizItems[quizQuestion].questionText); // set attribute of input name=questionText
     inputEl.onclick = function(event) { //Clicking the radio button calls the next question
       nextQuestion(quizNum);
-
-
     };
 
     var createLabel = document.createElement('label'); // create a label element
