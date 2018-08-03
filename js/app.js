@@ -6,7 +6,6 @@ var quizId = [document.getElementById('quiz1'), document.getElementById('quiz2')
 // variable that gives a quiz id to pass into html
 var quizItems = []; // variable that holds each individual question + answer array
 var quizQuestion = 0; // variable holding which question user is currently on
-var submitID = 0; // variable that increments after each quiz is taken
 var eventValue;
 var quizNum;
 var quizNames = [];
@@ -76,13 +75,14 @@ function makeQuizzes() {
   new QuizItem('Which artis do you appreciate most?', ['Salvador Dali', 'Vincent van Gogh', 'Bob Ross'], [1, 2, 3]);
   new QuizItem('Are you a morning person?', ['Only because I never went to sleep last night', 'Yes', 'No'], [0, 1, 3]);
   var quiz3 = new Quiz('Pet-Selector', 'Take this quiz and we\'ll tell you which pet is perfect for you!', quizItems, ['Platypus', 'Liger', 'Elephant'], ['imgs/Platypus.jpg', 'imgs/Liger.jpg', 'imgs/Elephant.jpg'], 'kQuiz', 'imgs/kQuizIndex.jpg');
-  quizItems = [];
+  quizItems = []; // resets quizItems for next quiz
 }
 
 function renderStart() { // function that starts the quiz flow
 
   localStorage.setItem('quizNames', JSON.stringify(quizNames));
   localStorage.setItem('quizReference', JSON.stringify(quizReference));
+
   if (localStorage.userName) { // if user has already been to site, skip asking their name
     // do nothing
   } else {
@@ -129,6 +129,7 @@ function renderQuiz(eventValue) { // function to render the quiz questions after
   createH3.setAttribute('class', 'quizQuestion');
   createH3.textContent = quizNum.quizItems[quizQuestion].questionText; // sets text content to the question text
   newDiv.appendChild(createH3); // append the h3 element to the newDiv to hold the quiz question itself
+
   for (var j = 0; j < quizNum.quizItems[quizQuestion].options.length; j++) { // for each of the options on the quiz question
     var divEl = document.createElement('p'); // create a p element
     divEl.setAttribute('class', 'questionOption');
@@ -163,7 +164,6 @@ function nextQuestion(quizNum) { // function to display next question when submi
     disableButtons[k].disabled=true;
   }
 
-  submitID++; // next submitId for next question
   quizQuestion++; // next quiz question for next selections
   if (quizQuestion < quizNum.quizItems.length) // if the quiz question number is less than number of questions
   {
